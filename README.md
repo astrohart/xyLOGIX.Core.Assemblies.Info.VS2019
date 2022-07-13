@@ -1,4 +1,4 @@
-﻿# xyLOGIX.Assemblies.Info `class library`
+# xyLOGIX.Core.Assemblies.Info `class library`
 
 .NET Frramework 4.8 class library project that provides objects and functionality for getting the attributes, e.g., Product, Title, Version etc of the calling assembly as strings.
 
