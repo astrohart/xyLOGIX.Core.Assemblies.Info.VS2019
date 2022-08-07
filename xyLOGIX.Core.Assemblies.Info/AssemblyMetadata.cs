@@ -9,7 +9,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <summary>
     /// Exposes static methods to obtain data from various sources.
     /// </summary>
-    public static class Get
+    public static class AssemblyMetadata
     {
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the value of the
