@@ -13,6 +13,47 @@ namespace xyLOGIX.Core.Assemblies.Info
     {
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of  the calling assembly.
+        /// </summary>
+        public static string AssemblyCompany
+        {
+            get
+            {
+                var result = string.Empty;
+
+                try
+                {
+                    var attributes = Assembly.GetCallingAssembly()
+                                             .GetCustomAttributes(
+                                                 typeof(
+                                                     AssemblyCompanyAttribute),
+                                                 false
+                                             );
+                    if (attributes == null || !attributes.Any())
+                        return result;
+
+                    if (!(attributes.First() is AssemblyCompanyAttribute
+                            companyAttribute)) return result;
+                    if (string.IsNullOrWhiteSpace(companyAttribute.Company))
+                        return result;
+
+                    result = companyAttribute.Company;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
         /// <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c>
         /// file
         /// of  the calling assembly.
