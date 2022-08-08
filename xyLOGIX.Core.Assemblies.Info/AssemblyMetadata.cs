@@ -55,10 +55,9 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the value of the
         /// <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c>
-        /// file
-        /// of  the calling assembly.
+        /// file of  the calling assembly.
         /// </summary>
-        private static string AssemblyProduct
+        public static string AssemblyProduct
         {
             get
             {
@@ -99,7 +98,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>[assembly: AssemblyTitle]</c> attribute from the <c>AssemblyInfo.cs</c> file
         /// of  the calling assembly.
         /// </summary>
-        private static string AssemblyTitle
+        public static string AssemblyTitle
         {
             get
             {
