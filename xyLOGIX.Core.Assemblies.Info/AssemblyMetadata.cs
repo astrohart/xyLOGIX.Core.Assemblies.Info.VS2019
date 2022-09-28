@@ -24,7 +24,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
+                    var attributes = Assembly.GetEntryAssembly()
                                              .GetCustomAttributes(
                                                  typeof(
                                                      AssemblyCompanyAttribute),
@@ -65,7 +65,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
+                    var attributes = Assembly.GetEntryAssembly()
                                              .GetCustomAttributes(
                                                  typeof(
                                                      AssemblyProductAttribute),
@@ -103,13 +103,13 @@ namespace xyLOGIX.Core.Assemblies.Info
             get
             {
                 var result = Path.GetFileNameWithoutExtension(
-                    Assembly.GetCallingAssembly()
+                    Assembly.GetEntryAssembly()
                             .CodeBase
                 );
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
+                    var attributes = Assembly.GetEntryAssembly()
                                              .GetCustomAttributes(
                                                  typeof(AssemblyTitleAttribute),
                                                  false
@@ -130,7 +130,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     DebugUtils.LogException(ex);
 
                     result = Path.GetFileNameWithoutExtension(
-                        Assembly.GetCallingAssembly()
+                        Assembly.GetEntryAssembly()
                                 .CodeBase
                     );
                 }
