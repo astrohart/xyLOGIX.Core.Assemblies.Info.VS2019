@@ -24,7 +24,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetEntryAssembly()
+                    var attributes = Assembly.GetCallingAssembly()
                                              .GetCustomAttributes(
                                                  typeof(
                                                      AssemblyCompanyAttribute),
@@ -65,7 +65,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetEntryAssembly()
+                    var attributes = Assembly.GetCallingAssembly()
                                              .GetCustomAttributes(
                                                  typeof(
                                                      AssemblyProductAttribute),
@@ -103,13 +103,13 @@ namespace xyLOGIX.Core.Assemblies.Info
             get
             {
                 var result = Path.GetFileNameWithoutExtension(
-                    Assembly.GetEntryAssembly()
+                    Assembly.GetCallingAssembly()
                             .CodeBase
                 );
 
                 try
                 {
-                    var attributes = Assembly.GetEntryAssembly()
+                    var attributes = Assembly.GetCallingAssembly()
                                              .GetCustomAttributes(
                                                  typeof(AssemblyTitleAttribute),
                                                  false
@@ -130,7 +130,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     DebugUtils.LogException(ex);
 
                     result = Path.GetFileNameWithoutExtension(
-                        Assembly.GetEntryAssembly()
+                        Assembly.GetCallingAssembly()
                                 .CodeBase
                     );
                 }
@@ -143,7 +143,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// Gets the full version of the application.
         /// </summary>
         public static string AssemblyVersion
-            => Assembly.GetEntryAssembly()
+            => Assembly.GetCallingAssembly()
                        .GetName()
                        .Version.ToString();
     }
