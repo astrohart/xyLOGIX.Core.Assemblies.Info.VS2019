@@ -4,17 +4,17 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("xyLOGIX Support Library for xyLOGIX.Core.Assemblies.Info")]
-[assembly: AssemblyDescription("Provides objects and functionality for ")]
+[assembly: AssemblyTitle("xyLOGIX.Core.Assemblies.Info")]
+[assembly: AssemblyDescription("Provides objects and functionality for deriving information about a .NET assembly, such as its title, product name, and company name etc.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for xyLOGIX.Core.Assemblies.Info")]
+[assembly: AssemblyProduct("xyLOGIX Support Library for Assembly Information")]
 [assembly:
     AssemblyCopyright(
-        "Copyright © 2020 by xyLOGIX, LLC.  All rights reserved.")]
+        "Copyright © 2020-23 by xyLOGIX, LLC.  All rights reserved.")]
 [assembly:
     AssemblyTrademark(
-        "This software is a component of xyLOGIX xyLOGIX.Core.Assemblies.Info.  xyLOGIX.Core.Assemblies.Info is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
+        "This software is a component of xyLOGIX Core Assembly Info Library.  xyLOGIX Core Assembly Info Library is a trademark of xyLOGIX, LLC.  All rights reserved, especially those granted by international treaties.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
