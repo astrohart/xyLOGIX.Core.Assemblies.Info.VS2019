@@ -24,12 +24,11 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
-                                             .GetCustomAttributes(
-                                                 typeof(
-                                                     AssemblyCompanyAttribute),
-                                                 false
-                                             );
+                    var attributes = Get.AssemblyToUse()
+                                        .GetCustomAttributes(
+                                            typeof(AssemblyCompanyAttribute),
+                                            false
+                                        );
                     if (attributes == null || !attributes.Any())
                         return result;
 
@@ -65,12 +64,11 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
-                                             .GetCustomAttributes(
-                                                 typeof(
-                                                     AssemblyProductAttribute),
-                                                 false
-                                             );
+                    var attributes = Get.AssemblyToUse()
+                                        .GetCustomAttributes(
+                                            typeof(AssemblyProductAttribute),
+                                            false
+                                        );
                     if (attributes == null || !attributes.Any())
                         return result;
 
@@ -102,18 +100,21 @@ namespace xyLOGIX.Core.Assemblies.Info
         {
             get
             {
-                var result = Path.GetFileNameWithoutExtension(
-                    Assembly.GetCallingAssembly()
-                            .CodeBase
-                );
+                var result = "MyAssembly"; // generic catch-all
+
+                var assemblyToUse = Get.AssemblyToUse();
+                if (assemblyToUse == null)
+                    return result;
 
                 try
                 {
-                    var attributes = Assembly.GetCallingAssembly()
-                                             .GetCustomAttributes(
-                                                 typeof(AssemblyTitleAttribute),
-                                                 false
-                                             );
+                    result = Path.GetFileNameWithoutExtension(
+                        assemblyToUse.CodeBase
+                    );
+
+                    var attributes = assemblyToUse.GetCustomAttributes(
+                        typeof(AssemblyTitleAttribute), false
+                    );
                     if (attributes == null || !attributes.Any())
                         return result;
 
@@ -129,10 +130,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     // dump all the exception info to the log
                     DebugUtils.LogException(ex);
 
-                    result = Path.GetFileNameWithoutExtension(
-                        Assembly.GetCallingAssembly()
-                                .CodeBase
-                    );
+                    result = "MyAssembly"; // generic catch-all
                 }
 
                 return result;
@@ -143,8 +141,65 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// Gets the full version of the application.
         /// </summary>
         public static string AssemblyVersion
-            => Assembly.GetCallingAssembly()
+            => Assembly.GetEntryAssembly()
                        .GetName()
                        .Version.ToString();
+
+        /// <summary>
+        /// Exposes static methods to get values.
+        /// </summary>
+        internal static class Get
+        {
+            /// <summary>
+            /// Attempts to get the <see cref="T:System.Reflection.Assembly" /> instance that
+            /// is to be used to gather attributes.
+            /// </summary>
+            /// <returns>
+            /// If successful, the <see cref="T:System.Reflection.Assembly" />
+            /// instance that is to be used to gather attributes, or <see langword="null" /> if
+            /// not possible.
+            /// </returns>
+            /// <remarks>
+            /// This library can be called either from a unit test, or from a EXE.
+            /// <para />
+            /// We basically ask the calling assembly whether its pathname ends with
+            /// <c>Tests.dll</c>.  If affirmative, then the return value of the
+            /// <see cref="M:System.Reflection.Assembly.GetCallingAssembly" /> method is
+            /// fetched.
+            /// <para />
+            /// Otherwise, we assume that we have been called from a WinForms or Console or WPF
+            /// EXE application; therefore, the return value of this method is that of the
+            /// <see cref="M:System.Reflection.Assembly.GetEntryAssembly" /> method.
+            /// </remarks>
+            internal static Assembly AssemblyToUse()
+            {
+                Assembly result = default;
+
+                try
+                {
+                    if (Assembly.GetCallingAssembly() == null) return result;
+
+                    var callingAssemblyPathname = Assembly.GetCallingAssembly()
+                        .Location;
+                    if (string.IsNullOrWhiteSpace(callingAssemblyPathname))
+                        return result;
+                    if (!File.Exists(callingAssemblyPathname))
+                        return result;
+
+                    result = callingAssemblyPathname.EndsWith("Tests.dll")
+                        ? Assembly.GetCallingAssembly()
+                        : Assembly.GetEntryAssembly();
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = default;
+                }
+
+                return result;
+            }
+        }
     }
 }
