@@ -8,6 +8,7 @@
   - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
+  - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
 - [Get](#T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get')
   - [AssemblyToUse()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get.AssemblyToUse')
 - [Resources](#T-xyLOGIX-Core-Assemblies-Info-Properties-Resources 'xyLOGIX.Core.Assemblies.Info.Properties.Resources')
@@ -58,6 +59,19 @@ of the calling assembly.
 ##### Summary
 
 Gets the full version of the application.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName'></a>
+### ShortProductName `property`
+
+##### Summary
+
+Obtains the name of the application's product without the name of the company.
+
+##### Remarks
+
+This is useful, e.g., for error messages.  Instead of, "
+`MyCompany MyApp could not locate the file`," you can instead say, "
+`MyApp could not locate the file`."
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get'></a>
 ## Get `type`

@@ -1,4 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -145,6 +146,68 @@ namespace xyLOGIX.Core.Assemblies.Info
                        .GetName()
                        .Version.ToString();
 
+        public static string ShortCompanyName
+        {
+            get
+            {
+                var result = AssemblyCompany;
+
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(AssemblyCompany))
+                        return result;
+
+                    var commaIndex = AssemblyCompany.IndexOf(',');
+                    if (commaIndex < 0) return result; // comma not found
+
+                    result =
+                        AssemblyCompany.Remove(
+                            commaIndex
+                        ); // remove ', LLC' for example, from company name
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Obtains the name of the application's product without the name of the company.
+        /// </summary>
+        /// <remarks>
+        /// This is useful, e.g., for error messages.  Instead of, "
+        /// <c>MyCompany MyApp could not locate the file</c>," you can instead say, "
+        /// <c>MyApp could not locate the file</c>."
+        /// </remarks>
+        public static string ShortProductName
+        {
+            get
+            {
+                var result = AssemblyProduct;
+
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(AssemblyCompany))
+                        return result;
+                    if (string.IsNullOrWhiteSpace(ShortCompanyName))
+                        return result;
+
+                    result = AssemblyProduct.Replace(ShortCompanyName, "");
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+                }
+
+                return result;
+            }
+        }
+
         /// <summary>
         /// Exposes static methods to get values.
         /// </summary>
@@ -171,6 +234,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             /// EXE application; therefore, the return value of this method is that of the
             /// <see cref="M:System.Reflection.Assembly.GetEntryAssembly" /> method.
             /// </remarks>
+            [Log(AttributeExclude = true)]
             internal static Assembly AssemblyToUse()
             {
                 Assembly result = default;
