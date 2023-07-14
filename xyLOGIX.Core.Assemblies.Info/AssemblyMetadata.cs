@@ -25,11 +25,12 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Get.AssemblyToUse()
-                                        .GetCustomAttributes(
-                                            typeof(AssemblyCompanyAttribute),
-                                            false
-                                        );
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null) return result;
+
+                    var attributes = assemblyToUse.GetCustomAttributes(
+                        typeof(AssemblyCompanyAttribute), false
+                    );
                     if (attributes == null || !attributes.Any())
                         return result;
 
@@ -65,11 +66,12 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Get.AssemblyToUse()
-                                        .GetCustomAttributes(
-                                            typeof(AssemblyCopyrightAttribute),
-                                            false
-                                        );
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null) return result;
+
+                    var attributes = assemblyToUse.GetCustomAttributes(
+                        typeof(AssemblyCopyrightAttribute), false
+                    );
                     if (attributes == null || !attributes.Any())
                         return result;
                     if (!(attributes.First() is AssemblyCopyrightAttribute
@@ -105,12 +107,12 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Get.AssemblyToUse()
-                                        .GetCustomAttributes(
-                                            typeof(
-                                                AssemblyDescriptionAttribute),
-                                            false
-                                        );
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null) return result;
+
+                    var attributes = assemblyToUse.GetCustomAttributes(
+                        typeof(AssemblyDescriptionAttribute), false
+                    );
                     if (attributes == null || !attributes.Any())
                         return result;
                     if (!(attributes.First() is AssemblyDescriptionAttribute
@@ -147,11 +149,12 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    var attributes = Get.AssemblyToUse()
-                                        .GetCustomAttributes(
-                                            typeof(AssemblyProductAttribute),
-                                            false
-                                        );
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null) return result;
+
+                    var attributes = assemblyToUse.GetCustomAttributes(
+                        typeof(AssemblyProductAttribute), false
+                    );
                     if (attributes == null || !attributes.Any())
                         return result;
 
@@ -185,14 +188,17 @@ namespace xyLOGIX.Core.Assemblies.Info
             {
                 var result = "MyAssembly"; // generic catch-all
 
-                var assemblyToUse = Get.AssemblyToUse();
-                if (assemblyToUse == null)
-                    return result;
-
                 try
                 {
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null)
+                        return result;
+
+                    if (string.IsNullOrWhiteSpace(assemblyToUse.Location))
+                        return result;
+
                     result = Path.GetFileNameWithoutExtension(
-                        assemblyToUse.CodeBase
+                        assemblyToUse.Location
                     );
 
                     var attributes = assemblyToUse.GetCustomAttributes(
@@ -221,12 +227,42 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets the full version of the application.
+        /// Gets the full version <see cref="T:System.String" /> of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyVersion
-            => Assembly.GetEntryAssembly()
-                       .GetName()
-                       .Version.ToString();
+        {
+            get
+            {
+                var result = string.Empty;
+
+                try
+                {
+                    var assemblyToUse = Get.AssemblyToUse();
+                    if (assemblyToUse == null) return result;
+
+                    var assemblyNameToUse = assemblyToUse.GetName();
+                    if (assemblyNameToUse == null) return result;
+
+                    var assemblyVersion = assemblyNameToUse.Version;
+                    if (assemblyVersion == null) return result;
+
+                    result = assemblyVersion.ToString();
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
 
         public static string ShortCompanyName
         {
