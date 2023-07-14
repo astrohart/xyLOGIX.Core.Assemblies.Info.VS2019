@@ -1,7 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using xyLOGIX.Core.Debug;
@@ -279,7 +278,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (string.IsNullOrWhiteSpace(ShortCompanyName))
                         return result;
 
-                    result = AssemblyProduct.Replace(ShortCompanyName, "");
+                    result = AssemblyProduct.Replace(ShortCompanyName, "")
+                                            .Trim();
                 }
                 catch (Exception ex)
                 {
@@ -325,21 +325,19 @@ namespace xyLOGIX.Core.Assemblies.Info
                 try
                 {
                     var executingAssembly = Assembly.GetExecutingAssembly();
-                    var callerAssemblies = new StackTrace().GetFrames()
-                        .Select(
-                            x => x.GetMethod()
-                                  .ReflectedType.Assembly
-                        )
-                        .Distinct()
-                        .Where(
-                            x => x.GetReferencedAssemblies()
-                                  .Any(
-                                      y => y.FullName ==
-                                           executingAssembly.FullName
-                                  )
-                        );
-                    var initialAssembly = callerAssemblies.Last();
 
+                    var ancestors =
+                        Find.AllAssembliesThatDependOn(executingAssembly);
+                    if (ancestors == null || !ancestors.Any())
+                        return result;
+
+                    /*
+                     * The call stack frames go in reverse order, from the currently-
+                     * executing method, down to the initial assembly that call the
+                     * calling method.  This is the entry we want.
+                     */
+
+                    var initialAssembly = ancestors.Last();
                     if (initialAssembly == null) return result;
 
                     var initialAssemblyPathname = initialAssembly.Location;
@@ -350,7 +348,8 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                     result = initialAssemblyPathname.EndsWith("Tests.dll")
                         ? initialAssembly
-                        : Assembly.GetEntryAssembly();
+                        : Assembly
+                            .GetEntryAssembly(); // If we aren't unit-testing, the entry assembly does fine
                 }
                 catch (Exception ex)
                 {

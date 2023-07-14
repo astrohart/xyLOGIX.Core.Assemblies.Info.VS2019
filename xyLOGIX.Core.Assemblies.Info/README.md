@@ -5,6 +5,8 @@
 
 - [AssemblyMetadata](#T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata')
   - [AssemblyCompany](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCompany 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyCompany')
+  - [AssemblyCopyright](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCopyright 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyCopyright')
+  - [AssemblyDescription](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyDescription 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyDescription')
   - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
@@ -33,6 +35,25 @@ Exposes static methods to obtain data from various sources.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs`
+file of the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCopyright'></a>
+### AssemblyCopyright `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyCopyright]` attribute from the `AssemblyInfo.cs`
+file of the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyDescription'></a>
+### AssemblyDescription `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyDescription]` attribute from the
+`AssemblyInfo.cs`
 file of the calling assembly.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct'></a>
