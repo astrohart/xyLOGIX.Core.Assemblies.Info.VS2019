@@ -1,6 +1,7 @@
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using xyLOGIX.Core.Debug;
@@ -39,6 +40,88 @@ namespace xyLOGIX.Core.Assemblies.Info
                         return result;
 
                     result = companyAttribute.Company;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyCopyright]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of the calling assembly.
+        /// </summary>
+        public static string AssemblyCopyright
+        {
+            get
+            {
+                var result = string.Empty;
+
+                try
+                {
+                    var attributes = Get.AssemblyToUse()
+                                        .GetCustomAttributes(
+                                            typeof(AssemblyCopyrightAttribute),
+                                            false
+                                        );
+                    if (attributes == null || !attributes.Any())
+                        return result;
+                    if (!(attributes.First() is AssemblyCopyrightAttribute
+                            copyrightAttribute)) return result;
+                    if (string.IsNullOrWhiteSpace(copyrightAttribute.Copyright))
+                        return result;
+
+                    result = copyrightAttribute.Copyright;
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyDescription]</c> attribute from the
+        /// <c>AssemblyInfo.cs</c>
+        /// file of the calling assembly.
+        /// </summary>
+        public static string AssemblyDescription
+        {
+            get
+            {
+                var result = string.Empty;
+
+                try
+                {
+                    var attributes = Get.AssemblyToUse()
+                                        .GetCustomAttributes(
+                                            typeof(
+                                                AssemblyDescriptionAttribute),
+                                            false
+                                        );
+                    if (attributes == null || !attributes.Any())
+                        return result;
+                    if (!(attributes.First() is AssemblyDescriptionAttribute
+                            descriptionAttribute)) return result;
+                    if (string.IsNullOrWhiteSpace(
+                            descriptionAttribute.Description
+                        ))
+                        return result;
+
+                    result = descriptionAttribute.Description;
                 }
                 catch (Exception ex)
                 {
@@ -241,17 +324,32 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    if (Assembly.GetCallingAssembly() == null) return result;
+                    var executingAssembly = Assembly.GetExecutingAssembly();
+                    var callerAssemblies = new StackTrace().GetFrames()
+                        .Select(
+                            x => x.GetMethod()
+                                  .ReflectedType.Assembly
+                        )
+                        .Distinct()
+                        .Where(
+                            x => x.GetReferencedAssemblies()
+                                  .Any(
+                                      y => y.FullName ==
+                                           executingAssembly.FullName
+                                  )
+                        );
+                    var initialAssembly = callerAssemblies.Last();
 
-                    var callingAssemblyPathname = Assembly.GetCallingAssembly()
-                        .Location;
-                    if (string.IsNullOrWhiteSpace(callingAssemblyPathname))
+                    if (initialAssembly == null) return result;
+
+                    var initialAssemblyPathname = initialAssembly.Location;
+                    if (string.IsNullOrWhiteSpace(initialAssemblyPathname))
                         return result;
-                    if (!File.Exists(callingAssemblyPathname))
+                    if (!File.Exists(initialAssemblyPathname))
                         return result;
 
-                    result = callingAssemblyPathname.EndsWith("Tests.dll")
-                        ? Assembly.GetCallingAssembly()
+                    result = initialAssemblyPathname.EndsWith("Tests.dll")
+                        ? initialAssembly
                         : Assembly.GetEntryAssembly();
                 }
                 catch (Exception ex)
