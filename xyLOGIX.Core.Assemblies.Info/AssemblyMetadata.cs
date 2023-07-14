@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
+using xyLOGIX.Core.Debug;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
-using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {

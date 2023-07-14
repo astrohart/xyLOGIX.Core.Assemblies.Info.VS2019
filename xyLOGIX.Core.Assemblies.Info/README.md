@@ -10,6 +10,7 @@
   - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
+  - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
@@ -46,6 +47,11 @@ Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=E
 `[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs`
 file of the calling assembly.
 
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
+
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCopyright'></a>
 ### AssemblyCopyright `property`
 
@@ -54,6 +60,11 @@ file of the calling assembly.
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyCopyright]` attribute from the `AssemblyInfo.cs`
 file of the calling assembly.
+
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyDescription'></a>
 ### AssemblyDescription `property`
@@ -65,6 +76,11 @@ Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=E
 `AssemblyInfo.cs`
 file of the calling assembly.
 
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
+
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct'></a>
 ### AssemblyProduct `property`
 
@@ -73,6 +89,11 @@ file of the calling assembly.
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs`
 file of the calling assembly.
+
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle'></a>
 ### AssemblyTitle `property`
@@ -83,12 +104,45 @@ Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=E
 `[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file
 of the calling assembly.
 
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
+
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion'></a>
 ### AssemblyVersion `property`
 
 ##### Summary
 
-Gets the full version of the application.
+Gets the full version [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') of the calling assembly.
+
+##### Remarks
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
+### ShortCompanyName `property`
+
+##### Summary
+
+Gets the shortened form of the name of the company that is associated
+with the target assembly.
+
+##### Remarks
+
+The shortened form of a company is that which does not contain "LLC", or ",
+Inc." etc.
+
+
+
+This property assumes that all full company names use commas to separate the
+brand name from the incorporation prefix.
+
+
+
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
+if it could not interrogate the target assembly for the requested information.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName'></a>
 ### ShortProductName `property`
@@ -102,6 +156,13 @@ Obtains the name of the application's product without the name of the company.
 This is useful, e.g., for error messages.  Instead of, "
 `MyCompany MyApp could not locate the file`," you can instead say, "
 `MyApp could not locate the file`."
+
+
+
+This property returns the value of the
+[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
+property if the shortened form of the product name could not otherwise be
+determined.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
 ## Find `type`

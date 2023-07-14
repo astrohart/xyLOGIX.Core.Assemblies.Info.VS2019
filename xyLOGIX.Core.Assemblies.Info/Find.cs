@@ -25,8 +25,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <returns>
         /// If successful, a read-only collection of references to instances of
         /// <paramref name="executingAssembly" /> in the call stack that refer to the
-        /// specified
-        /// <paramref name="executingAssembly" />.
+        /// specified <paramref name="executingAssembly" /> is returned.
         /// </returns>
         /// <remarks>If there is an issue that is experienced </remarks>
         internal static IReadOnlyList<Assembly> AllAssembliesThatDependOn(
@@ -66,7 +65,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Determines if the specified <paramref name="currentAssembly" /> is referred to
+        /// Determines if the specified <paramref name="executingAssembly" /> is referred
+        /// to
         /// by other assemblies in the current stack trace frame.
         /// </summary>
         /// <param name="currentAssembly">
@@ -78,9 +78,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <see cref="T:System.Reflection.Assembly" />.
         /// </param>
         /// <returns>
-        /// <see langword="true" /> if the specified
-        /// <paramref name="currentAssembly" /> is referred to by other assemblies in the
-        /// call stack; <see langword="false" /> otherwise.
+        /// <see langword="true" /> if the specified <paramref name="currentAssembly" />
+        /// depends upon the <paramref name="executingAssembly" />;
+        /// <see langword="false" /> otherwise, or if the relationship between the
+        /// specified assemblies could not be determined.
         /// </returns>
         /// <remarks>
         /// This method also returns <see langword="false" /> if information is
