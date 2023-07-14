@@ -17,6 +17,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c>
         /// file of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyCompany
         {
             get
@@ -58,6 +62,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>[assembly: AssemblyCopyright]</c> attribute from the <c>AssemblyInfo.cs</c>
         /// file of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyCopyright
         {
             get
@@ -99,6 +107,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>AssemblyInfo.cs</c>
         /// file of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyDescription
         {
             get
@@ -141,6 +153,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c>
         /// file of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyProduct
         {
             get
@@ -182,6 +198,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>[assembly: AssemblyTitle]</c> attribute from the <c>AssemblyInfo.cs</c> file
         /// of the calling assembly.
         /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyTitle
         {
             get
@@ -264,6 +284,20 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
+        /// <summary>
+        /// Gets the shortened form of the name of the company that is associated
+        /// with the target assembly.
+        /// </summary>
+        /// <remarks>
+        /// The shortened form of a company is that which does not contain "LLC", or ",
+        /// Inc." etc.
+        /// <para />
+        /// This property assumes that all full company names use commas to separate the
+        /// brand name from the incorporation prefix.
+        /// <para />
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string ShortCompanyName
         {
             get
@@ -300,6 +334,11 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// This is useful, e.g., for error messages.  Instead of, "
         /// <c>MyCompany MyApp could not locate the file</c>," you can instead say, "
         /// <c>MyApp could not locate the file</c>."
+        /// <para />
+        /// This property returns the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
+        /// property if the shortened form of the product name could not otherwise be
+        /// determined.
         /// </remarks>
         public static string ShortProductName
         {
