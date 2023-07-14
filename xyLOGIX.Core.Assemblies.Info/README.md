@@ -11,11 +11,20 @@
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
+- [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
+  - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
+  - [DependsOn(currentAssembly,executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-DependsOn-System-Reflection-Assembly,System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.DependsOn(System.Reflection.Assembly,System.Reflection.Assembly)')
 - [Get](#T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get')
+- [Get](#T-xyLOGIX-Core-Assemblies-Info-Get 'xyLOGIX.Core.Assemblies.Info.Get')
+  - [AssemblyCompany](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyCompany')
+  - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyProduct')
+  - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyTitle')
   - [AssemblyToUse()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get.AssemblyToUse')
 - [Resources](#T-xyLOGIX-Core-Assemblies-Info-Properties-Resources 'xyLOGIX.Core.Assemblies.Info.Properties.Resources')
   - [Culture](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-Culture 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.Culture')
   - [ResourceManager](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-ResourceManager 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.ResourceManager')
+- [StackFrameExtensions](#T-xyLOGIX-Core-Assemblies-Info-StackFrameExtensions 'xyLOGIX.Core.Assemblies.Info.StackFrameExtensions')
+  - [GetDeclaringAssembly(frame)](#M-xyLOGIX-Core-Assemblies-Info-StackFrameExtensions-GetDeclaringAssembly-System-Diagnostics-StackFrame- 'xyLOGIX.Core.Assemblies.Info.StackFrameExtensions.GetDeclaringAssembly(System.Diagnostics.StackFrame)')
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata'></a>
 ## AssemblyMetadata `type`
@@ -94,6 +103,73 @@ This is useful, e.g., for error messages.  Instead of, "
 `MyCompany MyApp could not locate the file`," you can instead say, "
 `MyApp could not locate the file`."
 
+<a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
+## Find `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Exposes static methods to find information on assemblies through Reflection.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly-'></a>
+### AllAssembliesThatDependOn(executingAssembly) `method`
+
+##### Summary
+
+Attempts to obtain a collection of references to instances of
+`executingAssembly` in the call stack that refer to the
+specified
+`executingAssembly`.
+
+##### Returns
+
+If successful, a read-only collection of references to instances of
+`executingAssembly` in the call stack that refer to the
+specified
+`executingAssembly`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to an instance of the currently-executing
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
+
+##### Remarks
+
+If there is an issue that is experienced
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-Find-DependsOn-System-Reflection-Assembly,System-Reflection-Assembly-'></a>
+### DependsOn(currentAssembly,executingAssembly) `method`
+
+##### Summary
+
+Determines if the specified `currentAssembly` is referred to
+by other assemblies in the current stack trace frame.
+
+##### Returns
+
+`true` if the specified
+`currentAssembly` is referred to by other assemblies in the
+call stack; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| currentAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) A
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') that is to be checked. |
+| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to the currently-executing
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
+
+##### Remarks
+
+This method also returns `false` if information is
+missing or a system error occurs during the operation.
+
 <a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get'></a>
 ## Get `type`
 
@@ -104,6 +180,44 @@ xyLOGIX.Core.Assemblies.Info.AssemblyMetadata
 ##### Summary
 
 Exposes static methods to get values.
+
+<a name='T-xyLOGIX-Core-Assemblies-Info-Get'></a>
+## Get `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Exposes static methods to obtain data from various sources.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany'></a>
+### AssemblyCompany `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs`
+file of  the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct'></a>
+### AssemblyProduct `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs`
+file of  the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle'></a>
+### AssemblyTitle `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file
+of  the calling assembly.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse'></a>
 ### AssemblyToUse() `method`
@@ -165,3 +279,40 @@ Overrides the current thread's CurrentUICulture property for all
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='T-xyLOGIX-Core-Assemblies-Info-StackFrameExtensions'></a>
+## StackFrameExtensions `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Exposes extension methods for the
+[StackFrame](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.StackFrame 'System.Diagnostics.StackFrame') class.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-StackFrameExtensions-GetDeclaringAssembly-System-Diagnostics-StackFrame-'></a>
+### GetDeclaringAssembly(frame) `method`
+
+##### Summary
+
+Attempts to obtain a reference to the
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance that represents the
+assembly that contains the method that is at the current stack
+`frame`.
+
+##### Returns
+
+If successful, a reference to the
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance that represents the
+assembly that contains the method that is at the current stack
+`frame`; `null` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| frame | [System.Diagnostics.StackFrame](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.StackFrame 'System.Diagnostics.StackFrame') | (Required.) Reference to an instance of the
+[StackFrame](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.StackFrame 'System.Diagnostics.StackFrame') that represents the top of the
+call stack. |
