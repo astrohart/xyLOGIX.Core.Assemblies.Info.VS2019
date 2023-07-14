@@ -189,8 +189,7 @@ specified
 
 If successful, a read-only collection of references to instances of
 `executingAssembly` in the call stack that refer to the
-specified
-`executingAssembly`.
+specified `executingAssembly` is returned.
 
 ##### Parameters
 
@@ -208,14 +207,16 @@ If there is an issue that is experienced
 
 ##### Summary
 
-Determines if the specified `currentAssembly` is referred to
+Determines if the specified `executingAssembly` is referred
+to
 by other assemblies in the current stack trace frame.
 
 ##### Returns
 
-`true` if the specified
-`currentAssembly` is referred to by other assemblies in the
-call stack; `false` otherwise.
+`true` if the specified `currentAssembly`
+depends upon the `executingAssembly`;
+`false` otherwise, or if the relationship between the
+specified assemblies could not be determined.
 
 ##### Parameters
 
