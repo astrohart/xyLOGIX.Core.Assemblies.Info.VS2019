@@ -1,9 +1,9 @@
 using Alphaleonis.Win32.Filesystem;
-using xyLOGIX.Core.Debug;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
+using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
@@ -367,8 +367,50 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Exposes static methods to get values.
+        /// Raised to attempt to find the particular
+        /// <see cref="T:System.Reflection.Assembly" /> whose attributes are to be
+        /// extracted by the properties of this class.
         /// </summary>
+        public static event Func<Assembly> AssemblyReferenceRequested;
+
+        /// <summary>
+        /// Raises the
+        /// <see
+        ///     cref="E:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyReferenceRequested" />
+        /// event.
+        /// </summary>
+        /// <param name="e">
+        /// (Required.) A
+        /// <see cref="T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventArgs" />
+        /// that contains the event data.
+        /// </param>
+        /// <returns>
+        /// If found, the <see cref="T:System.Reflection.Assembly" /> instance
+        /// whose attributes are to be extracted by the properties of this class.
+        /// </returns>
+        /// <remarks>
+        /// If no suitable <see cref="T:System.Reflection.Assembly" /> instance is
+        /// to be found, then this method returns <see langword="null" />.
+        /// </remarks>
+        private static Assembly OnAssemblyReferenceRequested()
+        {
+            Assembly result = default;
+
+            try
+            {
+                result = AssemblyReferenceRequested?.Invoke();
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = default;
+            }
+
+            return result;
+        }
+
         internal static class Get
         {
             /// <summary>
@@ -393,12 +435,15 @@ namespace xyLOGIX.Core.Assemblies.Info
             /// <see cref="M:System.Reflection.Assembly.GetEntryAssembly" /> method.
             /// </remarks>
             [Log(AttributeExclude = true)]
-            internal static Assembly AssemblyToUse()
+            public static Assembly AssemblyToUse()
             {
                 Assembly result = default;
 
                 try
                 {
+                    result = OnAssemblyReferenceRequested();
+                    if (result != null) return result;
+
                     var executingAssembly = Assembly.GetExecutingAssembly();
 
                     var ancestors =
