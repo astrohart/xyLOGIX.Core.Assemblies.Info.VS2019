@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <summary>
     /// Exposes static methods to find information on assemblies through Reflection.
     /// </summary>
+    [Log(AttributeExclude = true)]
     internal static class Find
     {
         /// <summary>

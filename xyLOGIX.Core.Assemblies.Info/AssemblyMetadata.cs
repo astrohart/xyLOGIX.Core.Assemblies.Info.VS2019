@@ -10,6 +10,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <summary>
     /// Exposes static methods to obtain data from various sources.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class AssemblyMetadata
     {
         /// <summary>

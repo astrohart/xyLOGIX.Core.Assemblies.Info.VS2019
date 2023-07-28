@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Diagnostics;
 using System.Reflection;
 using xyLOGIX.Core.Debug;
@@ -9,6 +10,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// Exposes extension methods for the
     /// <see cref="T:System.Diagnostics.StackFrame" /> class.
     /// </summary>
+    [Log(AttributeExclude = true)]
     internal static class StackFrameExtensions
     {
         /// <summary>
