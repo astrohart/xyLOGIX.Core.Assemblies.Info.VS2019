@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\PostSharp.2023.0.4\build\PostSharp.props" Condition="Exists('..\packages\PostSharp.2023.0.4\build\PostSharp.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -131,7 +131,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\xyLOGIX.Core.Debug.VS2019\xyLOGIX.Core.Debug\xyLOGIX.Core.Debug.csproj">
-      <Project>{C445C052-26B6-4884-9A7B-25DC7ABC0DED}</Project>
+      <Project>{c445c052-26b6-4884-9a7b-25dc7abc0ded}</Project>
       <Name>xyLOGIX.Core.Debug</Name>
     </ProjectReference>
   </ItemGroup>
