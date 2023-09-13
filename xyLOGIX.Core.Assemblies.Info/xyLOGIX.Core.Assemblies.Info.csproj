@@ -23,6 +23,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x64\Debug\xyLOGIX.Core.Assemblies.Info.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
+    <IntermediateOutputPath>C:\Users\BRIANH~1\AppData\Local\Temp\vs911E.tmp\x64\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -37,6 +38,7 @@
     <SkipPostSharp>True</SkipPostSharp>
     <DocumentationFile>bin\x64\Release\xyLOGIX.Core.Assemblies.Info.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
+    <IntermediateOutputPath>C:\Users\BRIANH~1\AppData\Local\Temp\vs911E.tmp\x64\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -51,6 +53,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Debug\xyLOGIX.Core.Assemblies.Info.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
+    <IntermediateOutputPath>C:\Users\BRIANH~1\AppData\Local\Temp\vs911E.tmp\x86\Debug\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -65,6 +68,7 @@
     <SkipPostSharp>False</SkipPostSharp>
     <DocumentationFile>bin\x86\Release\xyLOGIX.Core.Assemblies.Info.xml</DocumentationFile>
     <WarningLevel>0</WarningLevel>
+    <IntermediateOutputPath>C:\Users\BRIANH~1\AppData\Local\Temp\vs911E.tmp\x86\Release\</IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <OutputType>Library</OutputType>
