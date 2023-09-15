@@ -1,11 +1,11 @@
 ﻿using Alphaleonis.Win32.Filesystem;
-using Core.Logging;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
+using xyLOGIX.Core.Debug;
 
-namespace Core.Assemblies.Info
+namespace xyLOGIX.Core.Assemblies.Info
 {
     /// <summary> Exposes static methods to obtain data from various sources. </summary>
     [Log(AttributeExclude = true)]
@@ -337,7 +337,7 @@ namespace Core.Assemblies.Info
         /// <c>MyApp could not locate the file</c>."
         /// <para />
         /// This property returns the value of the
-        /// <see cref="P:Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property
         /// if the shortened form of the product name could not otherwise be determined.
         /// </remarks>
         public static string ShortProductName
