@@ -1,11 +1,11 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using Core.Logging;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
-using xyLOGIX.Core.Debug;
 
-namespace xyLOGIX.Core.Assemblies.Info
+namespace Core.Assemblies.Info
 {
     /// <summary> Exposes static methods to obtain data from various sources. </summary>
     [Log(AttributeExclude = true)]
@@ -34,11 +34,12 @@ namespace xyLOGIX.Core.Assemblies.Info
                     var attributes = assemblyToUse.GetCustomAttributes(
                         typeof(AssemblyCompanyAttribute), false
                     );
-                    if (attributes == null || !attributes.Any())
-                        return result;
+                    if (attributes == null || !attributes.Any()) return result;
 
                     if (!(attributes.First() is AssemblyCompanyAttribute
-                            companyAttribute)) return result;
+                            companyAttribute))
+                        return result;
+
                     if (string.IsNullOrWhiteSpace(companyAttribute.Company))
                         return result;
 
@@ -336,9 +337,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>MyApp could not locate the file</c>."
         /// <para />
         /// This property returns the value of the
-        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
-        /// property if the shortened form of the product name could not otherwise be
-        /// determined.
+        /// <see cref="P:Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property
+        /// if the shortened form of the product name could not otherwise be determined.
         /// </remarks>
         public static string ShortProductName
         {
@@ -444,10 +444,18 @@ namespace xyLOGIX.Core.Assemblies.Info
                     result = OnAssemblyReferenceRequested();
                     if (result != null) return result;
 
-                    var executingAssembly = Assembly.GetExecutingAssembly();
+                    var entryAssembly = Assembly.GetEntryAssembly();
+                    if (entryAssembly != null &&
+                        !string.IsNullOrWhiteSpace(entryAssembly.Location) &&
+                        !entryAssembly.Location.Contains("JetBrains") &&
+                        !entryAssembly.Location.Contains("LINQPad"))
+                    {
+                        result = entryAssembly;
+                        return result;
+                    }
 
                     var ancestors =
-                        Find.AllAssembliesThatDependOn(executingAssembly);
+                        Find.AllAssembliesThatDependOn(Assembly.GetExecutingAssembly());
                     if (ancestors == null || !ancestors.Any())
                         return result;
 
