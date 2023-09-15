@@ -158,9 +158,8 @@ This is useful, e.g., for error messages.  Instead of, "
 
 
 This property returns the value of the
-[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
-property if the shortened form of the product name could not otherwise be
-determined.
+[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct') property
+if the shortened form of the product name could not otherwise be determined.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested'></a>
 ### OnAssemblyReferenceRequested(e) `method`
