@@ -70,8 +70,7 @@ if it could not interrogate the target assembly for the requested information.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyDescription]` attribute from the
-`AssemblyInfo.cs`
-file of the calling assembly.
+`AssemblyInfo.cs` file of the calling assembly.
 
 ##### Remarks
 
@@ -111,7 +110,8 @@ if it could not interrogate the target assembly for the requested information.
 
 ##### Summary
 
-Gets the full version [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') of the calling assembly.
+Gets the full version [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') of the calling
+assembly.
 
 ##### Remarks
 
@@ -128,8 +128,8 @@ with the target assembly.
 
 ##### Remarks
 
-The shortened form of a company is that which does not contain "LLC", or ",
-Inc." etc.
+The shortened form of a company is that which does not contain "LLC",
+or ", Inc." etc.
 
 
 
@@ -138,15 +138,16 @@ brand name from the incorporation prefix.
 
 
 
-This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
-if it could not interrogate the target assembly for the requested information.
+This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value if it
+could not interrogate the target assembly for the requested information.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName'></a>
 ### ShortProductName `property`
 
 ##### Summary
 
-Obtains the name of the application's product without the name of the company.
+Obtains the name of the application's product without the name of the
+company.
 
 ##### Remarks
 
@@ -185,8 +186,8 @@ that contains the event data. |
 
 ##### Remarks
 
-If no suitable [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance is
-to be found, then this method returns `null`.
+If no suitable [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance
+is to be found, then this method returns `null`.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
 ## Find `type`
@@ -197,7 +198,8 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes static methods to find information on assemblies through Reflection.
+Exposes static methods to find information on assemblies through
+Reflection.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly-'></a>
 ### AllAssembliesThatDependOn(executingAssembly) `method`
@@ -206,8 +208,7 @@ Exposes static methods to find information on assemblies through Reflection.
 
 Attempts to obtain a collection of references to instances of
 `executingAssembly` in the call stack that refer to the
-specified
-`executingAssembly`.
+specified `executingAssembly`.
 
 ##### Returns
 
@@ -219,8 +220,8 @@ specified `executingAssembly` is returned.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to an instance of the currently-executing
-[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
+| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to an instance of the
+currently-executing [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
 
 ##### Remarks
 
@@ -231,16 +232,15 @@ If there is an issue that is experienced
 
 ##### Summary
 
-Determines if the specified `executingAssembly` is referred
-to
-by other assemblies in the current stack trace frame.
+Determines if the specified `executingAssembly` is
+referred to by other assemblies in the current stack trace frame.
 
 ##### Returns
 
-`true` if the specified `currentAssembly`
-depends upon the `executingAssembly`;
-`false` otherwise, or if the relationship between the
-specified assemblies could not be determined.
+`true` if the specified
+`currentAssembly` depends upon the
+`executingAssembly`; `false` otherwise, or
+if the relationship between the specified assemblies could not be determined.
 
 ##### Parameters
 
@@ -248,8 +248,8 @@ specified assemblies could not be determined.
 | ---- | ---- | ----------- |
 | currentAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) A
 [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') that is to be checked. |
-| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to the currently-executing
-[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
+| executingAssembly | [System.Reflection.Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') | (Required.) Reference to the
+currently-executing [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly'). |
 
 ##### Remarks
 
@@ -268,8 +268,8 @@ xyLOGIX.Core.Assemblies.Info.AssemblyMetadata
 
 ##### Summary
 
-Attempts to get the [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance that
-is to be used to gather attributes.
+Attempts to get the [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
+instance that is to be used to gather attributes.
 
 ##### Returns
 
@@ -314,8 +314,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`

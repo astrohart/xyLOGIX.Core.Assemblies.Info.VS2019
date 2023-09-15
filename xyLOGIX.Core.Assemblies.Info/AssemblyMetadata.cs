@@ -1,4 +1,4 @@
-using Alphaleonis.Win32.Filesystem;
+﻿using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
@@ -7,9 +7,7 @@ using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-    /// <summary>
-    /// Exposes static methods to obtain data from various sources.
-    /// </summary>
+    /// <summary> Exposes static methods to obtain data from various sources. </summary>
     [Log(AttributeExclude = true)]
     public static class AssemblyMetadata
     {
@@ -105,8 +103,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the value of the
         /// <c>[assembly: AssemblyDescription]</c> attribute from the
-        /// <c>AssemblyInfo.cs</c>
-        /// file of the calling assembly.
+        /// <c>AssemblyInfo.cs</c> file of the calling assembly.
         /// </summary>
         /// <remarks>
         /// This property returns the <see cref="F:System.String.Empty" /> value
@@ -248,7 +245,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets the full version <see cref="T:System.String" /> of the calling assembly.
+        /// Gets the full version <see cref="T:System.String" /> of the calling
+        /// assembly.
         /// </summary>
         /// <remarks>
         /// This property returns the <see cref="F:System.String.Empty" /> value
@@ -290,14 +288,14 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// with the target assembly.
         /// </summary>
         /// <remarks>
-        /// The shortened form of a company is that which does not contain "LLC", or ",
-        /// Inc." etc.
+        /// The shortened form of a company is that which does not contain "LLC",
+        /// or ", Inc." etc.
         /// <para />
         /// This property assumes that all full company names use commas to separate the
         /// brand name from the incorporation prefix.
         /// <para />
-        /// This property returns the <see cref="F:System.String.Empty" /> value
-        /// if it could not interrogate the target assembly for the requested information.
+        /// This property returns the <see cref="F:System.String.Empty" /> value if it
+        /// could not interrogate the target assembly for the requested information.
         /// </remarks>
         public static string ShortCompanyName
         {
@@ -329,7 +327,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Obtains the name of the application's product without the name of the company.
+        /// Obtains the name of the application's product without the name of the
+        /// company.
         /// </summary>
         /// <remarks>
         /// This is useful, e.g., for error messages.  Instead of, "
@@ -390,8 +389,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// whose attributes are to be extracted by the properties of this class.
         /// </returns>
         /// <remarks>
-        /// If no suitable <see cref="T:System.Reflection.Assembly" /> instance is
-        /// to be found, then this method returns <see langword="null" />.
+        /// If no suitable <see cref="T:System.Reflection.Assembly" /> instance
+        /// is to be found, then this method returns <see langword="null" />.
         /// </remarks>
         private static Assembly OnAssemblyReferenceRequested()
         {
@@ -415,8 +414,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         internal static class Get
         {
             /// <summary>
-            /// Attempts to get the <see cref="T:System.Reflection.Assembly" /> instance that
-            /// is to be used to gather attributes.
+            /// Attempts to get the <see cref="T:System.Reflection.Assembly" />
+            /// instance that is to be used to gather attributes.
             /// </summary>
             /// <returns>
             /// If successful, the <see cref="T:System.Reflection.Assembly" />
