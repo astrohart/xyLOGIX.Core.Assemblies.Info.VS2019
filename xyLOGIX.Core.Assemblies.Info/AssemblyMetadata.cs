@@ -337,8 +337,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <c>MyApp could not locate the file</c>."
         /// <para />
         /// This property returns the value of the
-        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
-        /// property
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property
         /// if the shortened form of the product name could not otherwise be determined.
         /// </remarks>
         public static string ShortProductName
@@ -456,9 +455,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     }
 
                     var ancestors =
-                        Find.AllAssembliesThatDependOn(
-                            Assembly.GetExecutingAssembly()
-                        );
+                        Find.AllAssembliesThatDependOn(Assembly.GetExecutingAssembly());
                     if (ancestors == null || !ancestors.Any())
                         return result;
 
