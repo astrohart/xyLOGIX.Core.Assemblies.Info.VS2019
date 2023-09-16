@@ -17,6 +17,10 @@
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
   - [DependsOn(currentAssembly,executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-DependsOn-System-Reflection-Assembly,System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.DependsOn(System.Reflection.Assembly,System.Reflection.Assembly)')
 - [Get](#T-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get')
+- [Get](#T-xyLOGIX-Core-Assemblies-Info-Get 'xyLOGIX.Core.Assemblies.Info.Get')
+  - [AssemblyCompany](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyCompany')
+  - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyProduct')
+  - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyTitle')
   - [AssemblyToUse()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get.AssemblyToUse')
 - [Resources](#T-xyLOGIX-Core-Assemblies-Info-Properties-Resources 'xyLOGIX.Core.Assemblies.Info.Properties.Resources')
   - [Culture](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-Culture 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.Culture')
@@ -158,8 +162,7 @@ This is useful, e.g., for error messages.  Instead of, "
 
 
 This property returns the value of the
-[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
-property
+[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct') property
 if the shortened form of the product name could not otherwise be determined.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested'></a>
@@ -262,6 +265,38 @@ missing or a system error occurs during the operation.
 ##### Namespace
 
 xyLOGIX.Core.Assemblies.Info.AssemblyMetadata
+
+<a name='T-xyLOGIX-Core-Assemblies-Info-Get'></a>
+## Get `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Exposes static methods to obtain data from various sources.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany'></a>
+### AssemblyCompany `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct'></a>
+### AssemblyProduct `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle'></a>
+### AssemblyTitle `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse'></a>
 ### AssemblyToUse() `method`
