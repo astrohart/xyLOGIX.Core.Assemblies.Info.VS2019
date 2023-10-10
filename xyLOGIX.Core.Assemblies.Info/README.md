@@ -162,7 +162,8 @@ This is useful, e.g., for error messages.  Instead of, "
 
 
 This property returns the value of the
-[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct') property
+[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
+property
 if the shortened form of the product name could not otherwise be determined.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested'></a>
@@ -282,21 +283,27 @@ Exposes static methods to obtain data from various sources.
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs`
+file of  the calling assembly.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct'></a>
 ### AssemblyProduct `property`
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs`
+file of  the calling assembly.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle'></a>
 ### AssemblyTitle `property`
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the `[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file of  the calling assembly.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file
+of  the calling assembly.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse'></a>
 ### AssemblyToUse() `method`
