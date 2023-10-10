@@ -6,10 +6,14 @@ using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-///  <summary> Exposes static methods to obtain data from various sources. </summary>
+    /// <summary> Exposes static methods to obtain data from various sources. </summary>
     public static class Get
     {
-///  <summary> Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c> file of  the calling assembly. </summary>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of  the calling assembly.
+        /// </summary>
         public static string AssemblyCompany
         {
             get
@@ -46,7 +50,11 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-///  <summary> Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c> file of  the calling assembly. </summary>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of  the calling assembly.
+        /// </summary>
         public static string AssemblyProduct
         {
             get
@@ -83,7 +91,11 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-///  <summary> Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyTitle]</c> attribute from the <c>AssemblyInfo.cs</c> file of  the calling assembly. </summary>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyTitle]</c> attribute from the <c>AssemblyInfo.cs</c> file
+        /// of  the calling assembly.
+        /// </summary>
         public static string AssemblyTitle
         {
             get
