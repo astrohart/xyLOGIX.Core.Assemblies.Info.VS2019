@@ -1,5 +1,6 @@
 ﻿using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Threading;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -393,6 +394,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// If no suitable <see cref="T:System.Reflection.Assembly" /> instance
         /// is to be found, then this method returns <see langword="null" />.
         /// </remarks>
+        [Yielder]
         private static Assembly OnAssemblyReferenceRequested()
         {
             Assembly result = default;
