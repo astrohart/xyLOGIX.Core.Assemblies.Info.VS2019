@@ -1,4 +1,5 @@
 ﻿using Alphaleonis.Win32.Filesystem;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,17 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <summary> Exposes static methods to obtain data from various sources. </summary>
     public static class Get
     {
+        /// <summary>
+        /// Initializes static data or performs actions that need to be performed once only
+        /// for the <see cref="T:xyLOGIX.Core.Assemblies.Info.Get" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance being
+        /// created or before any static members are referenced.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static Get() { }
+
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the value of the
         /// <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c>
