@@ -22,6 +22,7 @@
   - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyProduct')
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyTitle')
   - [AssemblyToUse()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get.AssemblyToUse')
+  - [#cctor()](#M-xyLOGIX-Core-Assemblies-Info-Get-#cctor 'xyLOGIX.Core.Assemblies.Info.Get.#cctor')
 - [Resources](#T-xyLOGIX-Core-Assemblies-Info-Properties-Resources 'xyLOGIX.Core.Assemblies.Info.Properties.Resources')
   - [Culture](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-Culture 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.Culture')
   - [ResourceManager](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-ResourceManager 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.ResourceManager')
@@ -339,6 +340,23 @@ fetched.
 Otherwise, we assume that we have been called from a WinForms or Console or WPF
 EXE application; therefore, the return value of this method is that of the
 [GetEntryAssembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly.GetEntryAssembly 'System.Reflection.Assembly.GetEntryAssembly') method.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-Get-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes static data or performs actions that need to be performed once only
+for the [Get](#T-xyLOGIX-Core-Assemblies-Info-Get 'xyLOGIX.Core.Assemblies.Info.Get') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance being
+created or before any static members are referenced.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Properties-Resources'></a>
 ## Resources `type`
