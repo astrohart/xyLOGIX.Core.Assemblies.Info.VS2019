@@ -38,7 +38,7 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes static methods to obtain data from various sources.
+Exposes `static` methods to obtain data from various sources.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCompany'></a>
 ### AssemblyCompany `property`
@@ -203,7 +203,7 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes static methods to find information on assemblies through
+Exposes `static` methods to find information on assemblies through
 Reflection.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly-'></a>
@@ -277,7 +277,7 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes static methods to obtain data from various sources.
+Exposes `static` methods to obtain data from various sources.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany'></a>
 ### AssemblyCompany `property`
