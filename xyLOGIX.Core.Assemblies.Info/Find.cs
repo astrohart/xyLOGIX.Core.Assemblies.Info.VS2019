@@ -9,7 +9,7 @@ using xyLOGIX.Core.Debug;
 namespace xyLOGIX.Core.Assemblies.Info
 {
     /// <summary>
-    /// Exposes static methods to find information on assemblies through
+    /// Exposes <see langword="static" /> methods to find information on assemblies through
     /// Reflection.
     /// </summary>
     [Log(AttributeExclude = true)]
