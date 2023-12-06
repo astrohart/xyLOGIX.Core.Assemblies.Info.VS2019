@@ -1,5 +1,6 @@
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
+using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
 using System;
 using System.Linq;
@@ -373,6 +374,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <see cref="T:System.Reflection.Assembly" /> whose attributes are to be
         /// extracted by the properties of this class.
         /// </summary>
+        [WeakEvent]
         public static event Func<Assembly> AssemblyReferenceRequested;
 
         /// <summary>
