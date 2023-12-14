@@ -10,7 +10,7 @@ using xyLOGIX.Core.Debug;
 namespace xyLOGIX.Core.Assemblies.Info
 {
     /// <summary> Exposes <see langword="static" /> methods to obtain data from various sources. </summary>
-    [Log(AttributeExclude = true)]
+    [Log(AttributeExclude = true), ExplicitlySynchronized]
     public static class AssemblyMetadata
     {
         /// <summary>
@@ -416,6 +416,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             return result;
         }
 
+        [ExplicitlySynchronized]
         internal static class Get
         {
             /// <summary>
@@ -467,8 +468,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                         return result;
 
                     /*
-                     * The call stack frames go in reverse order, from the currently-
-                     * executing method, down to the initial assembly that call the
+                     * The call stack frames go in reverse order, from the currently-executing
+                     * method, down to the initial assembly that call the
                      * calling method.  This is the entry we want.
                      */
 
