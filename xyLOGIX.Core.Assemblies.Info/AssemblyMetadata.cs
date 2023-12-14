@@ -5,11 +5,14 @@ using PostSharp.Patterns.Threading;
 using System;
 using System.Linq;
 using System.Reflection;
-using xyLOGIX.Core.Debug;
+using System.Text.RegularExpressions;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-    /// <summary> Exposes <see langword="static" /> methods to obtain data from various sources. </summary>
+    /// <summary>
+    /// Exposes <see langword="static" /> methods to obtain data from various
+    /// sources.
+    /// </summary>
     [Log(AttributeExclude = true), ExplicitlySynchronized]
     public static class AssemblyMetadata
     {
@@ -50,7 +53,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = string.Empty;
                 }
@@ -94,7 +97,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = string.Empty;
                 }
@@ -140,7 +143,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = string.Empty;
                 }
@@ -185,7 +188,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = string.Empty;
                 }
@@ -238,7 +241,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = "MyAssembly"; // generic catch-all
                 }
@@ -277,7 +280,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = string.Empty;
                 }
@@ -322,7 +325,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
                 }
 
                 return result;
@@ -362,7 +365,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
                 }
 
                 return result;
@@ -376,6 +379,210 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// </summary>
         [WeakEvent]
         public static event Func<Assembly> AssemblyReferenceRequested;
+
+        public static bool ValidateProperties()
+        {
+            var result = false;
+
+            try
+            {
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: Attempting to validate the metadata..."
+                );
+
+                // Dump the value of the property, AssemblyCompany, to the log
+                Console.WriteLine(
+                    $"AssemblyMetadata.ValidateProperties: AssemblyCompany = '{AssemblyCompany}'"
+                );
+
+                Console.WriteLine(
+                    "*** INFO: Checking whether the value of the 'AssemblyCompany' property is blank..."
+                );
+
+                if (string.IsNullOrWhiteSpace(AssemblyCompany))
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyCompany' property. This property is required."
+                    );
+
+                    Console.WriteLine(
+                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "*** SUCCESS *** The property 'AssemblyCompany' is not blank.  Continuing..."
+                );
+
+                // Dump the value of the property, AssemblyCopyright, to the log
+                Console.WriteLine(
+                    $"AssemblyMetadata.ValidateProperties: AssemblyCopyright = '{AssemblyCopyright}'"
+                );
+
+                Console.WriteLine(
+                    "*** INFO: Checking whether the value of the 'AssemblyCopyright' property is blank..."
+                );
+
+                if (string.IsNullOrWhiteSpace(AssemblyCopyright))
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyCopyright' property. This property is required."
+                    );
+
+                    Console.WriteLine(
+                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "*** SUCCESS *** The property 'AssemblyCopyright' is not blank.  Continuing..."
+                );
+
+                // Dump the value of the property, AssemblyProduct, to the log
+                Console.WriteLine(
+                    $"AssemblyMetadata.ValidateProperties: AssemblyProduct = '{AssemblyProduct}'"
+                );
+
+                Console.WriteLine(
+                    "*** INFO: Checking whether the value of the 'AssemblyProduct' property is blank..."
+                );
+
+                if (string.IsNullOrWhiteSpace(AssemblyProduct))
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyProduct' property. This property is required."
+                    );
+
+                    Console.WriteLine(
+                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "*** SUCCESS *** The property 'AssemblyProduct' is not blank.  Continuing..."
+                );
+
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: Validating that the value of the AssemblyProduct property contains whitespace characters..."
+                );
+
+                if (!AssemblyProduct.HasWhiteSpace())
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** The value of the AssemblyProduct property contains no whitespace characters.  Make this property have a value equal to a user-friendly display name for your software product.  Stopping..."
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** The value of the AssemblyProduct property is not blank and has whitespace characters.  Continuing..."
+                );
+
+                // Dump the value of the property, AssemblyTitle, to the log
+                Console.WriteLine(
+                    $"AssemblyMetadata.ValidateProperties: AssemblyTitle = '{AssemblyTitle}'"
+                );
+
+                Console.WriteLine(
+                    "*** INFO: Checking whether the value of the 'AssemblyTitle' property is blank..."
+                );
+
+                if (string.IsNullOrWhiteSpace(AssemblyTitle))
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyTitle' property. This property is required."
+                    );
+
+                    Console.WriteLine(
+                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "*** SUCCESS *** The property 'AssemblyTitle' is not blank.  Continuing..."
+                );
+
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: Validating that the 'AssemblyTitle' property contains no whitespace..."
+                );
+
+                if (AssemblyTitle.HasWhiteSpace())
+                {
+                    Console.WriteLine(
+                        "AssemblyMetadata.ValidateProperties: *** ERROR *** The value of the AssemblyTitle property has whitespace characters in it.  This is invalid; the title of the assembly cannot contain any whitespace characters.  Stopping..."
+                    );
+
+                    return result;
+                }
+
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** The value of the AssemblyTitle property is both not blank and contains no whitespace characters.  Proceeding..."
+                );
+
+                Console.WriteLine(
+                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** All assembly metadata is present."
+                );
+
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                Console.WriteLine(ex);
+
+                result = false;
+            }
+
+            Console.WriteLine(
+                $"AssemblyMetadata.ValidateProperties: Result = {result}"
+            );
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines if the specified <see cref="T:System.String" /> parameter,
+        /// <paramref name="value" />, is a string that is non-blank but also contains any
+        /// whitespace.
+        /// </summary>
+        /// <param name="value">
+        /// (Required.) A <see cref="T:System.String" /> containing the value that is to be
+        /// checked for whitespace.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified <paramref name="value" />
+        /// contains any whitespace characters; <see langword="false" /> otherwise.
+        /// </returns>
+        private static bool HasWhiteSpace(this string value)
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(value)) return true;
+
+                result = Regex.Matches(value, @"\s+")
+                              .Count > 0;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                Console.WriteLine(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Raises the
@@ -408,7 +615,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             catch (Exception ex)
             {
                 // dump all the exception info to the log
-                DebugUtils.LogException(ex);
+                Console.WriteLine(ex);
 
                 result = default;
             }
@@ -490,7 +697,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 catch (Exception ex)
                 {
                     // dump all the exception info to the log
-                    DebugUtils.LogException(ex);
+                    Console.WriteLine(ex);
 
                     result = default;
                 }
