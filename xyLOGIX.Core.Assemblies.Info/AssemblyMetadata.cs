@@ -380,19 +380,19 @@ namespace xyLOGIX.Core.Assemblies.Info
         [WeakEvent]
         public static event Func<Assembly> AssemblyReferenceRequested;
 
-        public static bool ValidateProperties()
+        public static bool PropertiesHaveValidValues()
         {
             var result = false;
 
             try
             {
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: Attempting to validate the metadata..."
+                    "AssemblyMetadata.PropertiesHaveValidValues: Attempting to validate the metadata..."
                 );
 
                 // Dump the value of the property, AssemblyCompany, to the log
                 Console.WriteLine(
-                    $"AssemblyMetadata.ValidateProperties: AssemblyCompany = '{AssemblyCompany}'"
+                    $"AssemblyMetadata.PropertiesHaveValidValues: AssemblyCompany = '{AssemblyCompany}'"
                 );
 
                 Console.WriteLine(
@@ -402,11 +402,11 @@ namespace xyLOGIX.Core.Assemblies.Info
                 if (string.IsNullOrWhiteSpace(AssemblyCompany))
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyCompany' property. This property is required."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** Blank value passed for the 'AssemblyCompany' property. This property is required."
                     );
 
                     Console.WriteLine(
-                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                        $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
                     );
 
                     return result;
@@ -418,7 +418,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 // Dump the value of the property, AssemblyCopyright, to the log
                 Console.WriteLine(
-                    $"AssemblyMetadata.ValidateProperties: AssemblyCopyright = '{AssemblyCopyright}'"
+                    $"AssemblyMetadata.PropertiesHaveValidValues: AssemblyCopyright = '{AssemblyCopyright}'"
                 );
 
                 Console.WriteLine(
@@ -428,11 +428,11 @@ namespace xyLOGIX.Core.Assemblies.Info
                 if (string.IsNullOrWhiteSpace(AssemblyCopyright))
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyCopyright' property. This property is required."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** Blank value passed for the 'AssemblyCopyright' property. This property is required."
                     );
 
                     Console.WriteLine(
-                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                        $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
                     );
 
                     return result;
@@ -444,7 +444,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 // Dump the value of the property, AssemblyProduct, to the log
                 Console.WriteLine(
-                    $"AssemblyMetadata.ValidateProperties: AssemblyProduct = '{AssemblyProduct}'"
+                    $"AssemblyMetadata.PropertiesHaveValidValues: AssemblyProduct = '{AssemblyProduct}'"
                 );
 
                 Console.WriteLine(
@@ -454,11 +454,11 @@ namespace xyLOGIX.Core.Assemblies.Info
                 if (string.IsNullOrWhiteSpace(AssemblyProduct))
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyProduct' property. This property is required."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** Blank value passed for the 'AssemblyProduct' property. This property is required."
                     );
 
                     Console.WriteLine(
-                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                        $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
                     );
 
                     return result;
@@ -469,25 +469,25 @@ namespace xyLOGIX.Core.Assemblies.Info
                 );
 
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: Validating that the value of the AssemblyProduct property contains whitespace characters..."
+                    "AssemblyMetadata.PropertiesHaveValidValues: Validating that the value of the AssemblyProduct property contains whitespace characters..."
                 );
 
                 if (!AssemblyProduct.HasWhiteSpace())
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** The value of the AssemblyProduct property contains no whitespace characters.  Make this property have a value equal to a user-friendly display name for your software product.  Stopping..."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** The value of the AssemblyProduct property contains no whitespace characters.  Make this property have a value equal to a user-friendly display name for your software product.  Stopping..."
                     );
 
                     return result;
                 }
 
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** The value of the AssemblyProduct property is not blank and has whitespace characters.  Continuing..."
+                    "AssemblyMetadata.PropertiesHaveValidValues: *** SUCCESS *** The value of the AssemblyProduct property is not blank and has whitespace characters.  Continuing..."
                 );
 
                 // Dump the value of the property, AssemblyTitle, to the log
                 Console.WriteLine(
-                    $"AssemblyMetadata.ValidateProperties: AssemblyTitle = '{AssemblyTitle}'"
+                    $"AssemblyMetadata.PropertiesHaveValidValues: AssemblyTitle = '{AssemblyTitle}'"
                 );
 
                 Console.WriteLine(
@@ -497,11 +497,11 @@ namespace xyLOGIX.Core.Assemblies.Info
                 if (string.IsNullOrWhiteSpace(AssemblyTitle))
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** Blank value passed for the 'AssemblyTitle' property. This property is required."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** Blank value passed for the 'AssemblyTitle' property. This property is required."
                     );
 
                     Console.WriteLine(
-                        $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                        $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
                     );
 
                     return result;
@@ -512,24 +512,24 @@ namespace xyLOGIX.Core.Assemblies.Info
                 );
 
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: Validating that the 'AssemblyTitle' property contains no whitespace..."
+                    "AssemblyMetadata.PropertiesHaveValidValues: Validating that the 'AssemblyTitle' property contains no whitespace..."
                 );
 
                 if (AssemblyTitle.HasWhiteSpace())
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.ValidateProperties: *** ERROR *** The value of the AssemblyTitle property has whitespace characters in it.  This is invalid; the title of the assembly cannot contain any whitespace characters.  Stopping..."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** The value of the AssemblyTitle property has whitespace characters in it.  This is invalid; the title of the assembly cannot contain any whitespace characters.  Stopping..."
                     );
 
                     return result;
                 }
 
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** The value of the AssemblyTitle property is both not blank and contains no whitespace characters.  Proceeding..."
+                    "AssemblyMetadata.PropertiesHaveValidValues: *** SUCCESS *** The value of the AssemblyTitle property is both not blank and contains no whitespace characters.  Proceeding..."
                 );
 
                 Console.WriteLine(
-                    "AssemblyMetadata.ValidateProperties: *** SUCCESS *** All assembly metadata is present."
+                    "AssemblyMetadata.PropertiesHaveValidValues: *** SUCCESS *** All assembly metadata is present."
                 );
 
                 result = true;
@@ -543,7 +543,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
 
             Console.WriteLine(
-                $"AssemblyMetadata.ValidateProperties: Result = {result}"
+                $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
             );
 
             return result;
