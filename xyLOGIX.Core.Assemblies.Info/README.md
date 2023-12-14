@@ -12,6 +12,7 @@
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
   - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
+  - [HasWhiteSpace(value)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String- 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.HasWhiteSpace(System.String)')
   - [OnAssemblyReferenceRequested(e)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.OnAssemblyReferenceRequested')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
@@ -38,7 +39,8 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes `static` methods to obtain data from various sources.
+Exposes `static` methods to obtain data from various
+sources.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyCompany'></a>
 ### AssemblyCompany `property`
@@ -166,6 +168,27 @@ This property returns the value of the
 [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
 property
 if the shortened form of the product name could not otherwise be determined.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String-'></a>
+### HasWhiteSpace(value) `method`
+
+##### Summary
+
+Determines if the specified [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') parameter,
+`value`, is a string that is non-blank but also contains any
+whitespace.
+
+##### Returns
+
+`true` if the specified `value`
+contains any whitespace characters; `false` otherwise.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value that is to be
+checked for whitespace. |
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested'></a>
 ### OnAssemblyReferenceRequested(e) `method`
