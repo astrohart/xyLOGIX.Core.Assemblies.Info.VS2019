@@ -14,6 +14,7 @@
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
   - [HasWhiteSpace(value)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String- 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.HasWhiteSpace(System.String)')
   - [OnAssemblyReferenceRequested(e)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.OnAssemblyReferenceRequested')
+- [AssemblyReferenceRequestedEventHandler](#T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
   - [DependsOn(currentAssembly,executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-DependsOn-System-Reflection-Assembly,System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.DependsOn(System.Reflection.Assembly,System.Reflection.Assembly)')
@@ -216,6 +217,30 @@ that contains the event data. |
 
 If no suitable [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance
 is to be found, then this method returns `null`.
+
+<a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler'></a>
+## AssemblyReferenceRequestedEventHandler `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Delegate that expresses the method signature for a handler of an
+`AssemblyReferenceRequested` event.
+
+##### Returns
+
+If successful, a reference to an instance of
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') that indicates which .NET assembly
+is to be used for extracting metadata.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler](#T-T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
 ## Find `type`

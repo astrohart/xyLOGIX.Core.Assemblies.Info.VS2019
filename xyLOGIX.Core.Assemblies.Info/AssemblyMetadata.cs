@@ -13,7 +13,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// Exposes <see langword="static" /> methods to obtain data from various
     /// sources.
     /// </summary>
-    [Log(AttributeExclude = true), ExplicitlySynchronized]
+    [Log(AttributeExclude = true)]
     public static class AssemblyMetadata
     {
         /// <summary>
@@ -378,7 +378,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// extracted by the properties of this class.
         /// </summary>
         [WeakEvent]
-        public static event Func<Assembly> AssemblyReferenceRequested;
+        public static event AssemblyReferenceRequestedEventHandler
+            AssemblyReferenceRequested;
 
         public static bool PropertiesHaveValidValues()
         {
@@ -610,8 +611,10 @@ namespace xyLOGIX.Core.Assemblies.Info
 
             try
             {
-                result = AssemblyReferenceRequested?.Invoke();
-            }
+                if (AssemblyReferenceRequested == null) return result;
+
+                result = AssemblyReferenceRequested(EventArgs.Empty);
+            } 
             catch (Exception ex)
             {
                 // dump all the exception info to the log

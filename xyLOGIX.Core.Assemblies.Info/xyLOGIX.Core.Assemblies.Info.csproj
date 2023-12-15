@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyMetadata.cs" />
+    <Compile Include="AssemblyReferenceRequestedEventHandler.cs" />
     <Compile Include="Find.cs" />
     <Compile Include="Get.cs" />
     <Compile Include="GlobalAspects.cs" />
