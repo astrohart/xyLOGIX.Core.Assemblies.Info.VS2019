@@ -10,10 +10,10 @@
   - [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
+  - [DesiredAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-DesiredAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.DesiredAssembly')
   - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
   - [HasWhiteSpace(value)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String- 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.HasWhiteSpace(System.String)')
-  - [OnAssemblyReferenceRequested(e)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.OnAssemblyReferenceRequested')
 - [AssemblyReferenceRequestedEventHandler](#T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
@@ -126,6 +126,15 @@ assembly.
 This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
 if it could not interrogate the target assembly for the requested information.
 
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-DesiredAssembly'></a>
+### DesiredAssembly `property`
+
+##### Summary
+
+Gets or sets a reference to an instance of [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
+that indicates which `Assembly` metadata to use for the values of the
+properties.
+
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
 ### ShortCompanyName `property`
 
@@ -190,33 +199,6 @@ contains any whitespace characters; `false` otherwise.
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value that is to be
 checked for whitespace. |
-
-<a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested'></a>
-### OnAssemblyReferenceRequested(e) `method`
-
-##### Summary
-
-Raises the
-[](#E-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyReferenceRequested 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyReferenceRequested')
-event.
-
-##### Returns
-
-If found, the [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance
-whose attributes are to be extracted by the properties of this class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| e | [M:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.OnAssemblyReferenceRequested](#T-M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-OnAssemblyReferenceRequested 'M:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.OnAssemblyReferenceRequested') | (Required.) A
-[AssemblyReferenceRequestedEventArgs](#T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventArgs 'xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventArgs')
-that contains the event data. |
-
-##### Remarks
-
-If no suitable [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') instance
-is to be found, then this method returns `null`.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler'></a>
 ## AssemblyReferenceRequestedEventHandler `type`
