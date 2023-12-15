@@ -289,11 +289,11 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets a reference to an instance of <see cref="T:System.Reflection.Assembly" />
+        /// Gets or sets a reference to an instance of <see cref="T:System.Reflection.Assembly" />
         /// that indicates which <c>Assembly</c> metadata to use for the values of the
         /// properties.
         /// </summary>
-        public static Assembly DesiredAssembly { get; } =
+        public static Assembly DesiredAssembly { get; set; } =
             Assembly.GetEntryAssembly();
 
         /// <summary>
