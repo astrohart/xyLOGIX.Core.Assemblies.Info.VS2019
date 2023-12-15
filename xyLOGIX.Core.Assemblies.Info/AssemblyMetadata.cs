@@ -1,6 +1,5 @@
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
-using PostSharp.Patterns.Model;
 using PostSharp.Patterns.Threading;
 using System;
 using System.Linq;
@@ -290,6 +289,14 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
+        /// Gets a reference to an instance of <see cref="T:System.Reflection.Assembly" />
+        /// that indicates which <c>Assembly</c> metadata to use for the values of the
+        /// properties.
+        /// </summary>
+        public static Assembly DesiredAssembly { get; } =
+            Assembly.GetEntryAssembly();
+
+        /// <summary>
         /// Gets the shortened form of the name of the company that is associated
         /// with the target assembly.
         /// </summary>
@@ -371,15 +378,6 @@ namespace xyLOGIX.Core.Assemblies.Info
                 return result;
             }
         }
-
-        /// <summary>
-        /// Raised to attempt to find the particular
-        /// <see cref="T:System.Reflection.Assembly" /> whose attributes are to be
-        /// extracted by the properties of this class.
-        /// </summary>
-        [WeakEvent]
-        public static event AssemblyReferenceRequestedEventHandler
-            AssemblyReferenceRequested;
 
         public static bool PropertiesHaveValidValues()
         {
@@ -585,47 +583,6 @@ namespace xyLOGIX.Core.Assemblies.Info
             return result;
         }
 
-        /// <summary>
-        /// Raises the
-        /// <see
-        ///     cref="E:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyReferenceRequested" />
-        /// event.
-        /// </summary>
-        /// <param name="e">
-        /// (Required.) A
-        /// <see cref="T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventArgs" />
-        /// that contains the event data.
-        /// </param>
-        /// <returns>
-        /// If found, the <see cref="T:System.Reflection.Assembly" /> instance
-        /// whose attributes are to be extracted by the properties of this class.
-        /// </returns>
-        /// <remarks>
-        /// If no suitable <see cref="T:System.Reflection.Assembly" /> instance
-        /// is to be found, then this method returns <see langword="null" />.
-        /// </remarks>
-        [Yielder]
-        private static Assembly OnAssemblyReferenceRequested()
-        {
-            Assembly result = default;
-
-            try
-            {
-                if (AssemblyReferenceRequested == null) return result;
-
-                result = AssemblyReferenceRequested(EventArgs.Empty);
-            } 
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                Console.WriteLine(ex);
-
-                result = default;
-            }
-
-            return result;
-        }
-
         [ExplicitlySynchronized]
         internal static class Get
         {
@@ -657,7 +614,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 try
                 {
-                    result = OnAssemblyReferenceRequested();
+                    result = DesiredAssembly;
                     if (result != null) return result;
 
                     var entryAssembly = Assembly.GetEntryAssembly();
