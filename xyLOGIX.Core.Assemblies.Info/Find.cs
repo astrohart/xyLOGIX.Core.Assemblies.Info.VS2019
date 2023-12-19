@@ -1,4 +1,5 @@
-﻿using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,7 +36,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         )
         {
             var result = Enumerable.Empty<Assembly>()
-                                   .ToList();
+                                   .ToAdvisableCollection();
 
             try
             {
@@ -52,7 +53,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                                                      executingAssembly
                                                  )
                                          )
-                                         .ToList();
+                                         .ToAdvisableCollection();
             }
             catch (Exception ex)
             {
@@ -60,7 +61,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 DebugUtils.LogException(ex);
 
                 result = Enumerable.Empty<Assembly>()
-                                   .ToList();
+                                   .ToAdvisableCollection();
             }
 
             return result;
