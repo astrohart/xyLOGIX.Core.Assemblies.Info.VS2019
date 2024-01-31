@@ -7,7 +7,10 @@ using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-    /// <summary> Exposes <see langword="static" /> methods to obtain data from various sources. </summary>
+    /// <summary>
+    /// Exposes <see langword="static" /> methods to obtain data from various
+    /// sources.
+    /// </summary>
     public static class Get
     {
         /// <summary>
