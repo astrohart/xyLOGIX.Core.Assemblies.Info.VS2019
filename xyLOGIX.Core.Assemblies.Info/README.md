@@ -131,7 +131,8 @@ if it could not interrogate the target assembly for the requested information.
 
 ##### Summary
 
-Gets or sets a reference to an instance of [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
+Gets or sets a reference to an instance of
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
 that indicates which `Assembly` metadata to use for the values of the
 properties.
 
@@ -233,7 +234,8 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes `static` methods to find information on assemblies through
+Exposes `static` methods to find information on assemblies
+through
 Reflection.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly-'></a>
@@ -307,7 +309,8 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes `static` methods to obtain data from various sources.
+Exposes `static` methods to obtain data from various
+sources.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyCompany'></a>
 ### AssemblyCompany `property`
