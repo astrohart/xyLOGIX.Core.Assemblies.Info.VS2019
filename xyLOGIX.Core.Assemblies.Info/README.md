@@ -13,6 +13,7 @@
   - [DesiredAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-DesiredAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.DesiredAssembly')
   - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
+  - [UseExecutingAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.UseExecutingAssembly')
   - [HasWhiteSpace(value)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String- 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.HasWhiteSpace(System.String)')
 - [AssemblyReferenceRequestedEventHandler](#T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
@@ -179,6 +180,19 @@ This property returns the value of the
 [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
 property
 if the shortened form of the product name could not otherwise be determined.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly'></a>
+### UseExecutingAssembly `property`
+
+##### Summary
+
+Gets or sets a value indicating whether the currently-executing assembly is to
+be utilized for gathering information such as product name, company, version
+etc.
+
+##### Remarks
+
+The default value of this property is `false`.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String-'></a>
 ### HasWhiteSpace(value) `method`
