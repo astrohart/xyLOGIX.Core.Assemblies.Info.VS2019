@@ -423,7 +423,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             return result;
         }
 
-        private static bool PropertiesHaveValidValues()
+        public static bool PropertiesHaveValidValues()
         {
             var result = false;
 
