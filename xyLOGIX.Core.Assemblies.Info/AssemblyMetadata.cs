@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
@@ -298,6 +299,45 @@ namespace xyLOGIX.Core.Assemblies.Info
             Assembly.GetEntryAssembly();
 
         /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the formal name of the
+        /// application.
+        /// </summary>
+        /// <remarks>
+        /// The formal name is something such as
+        /// <c>xyLOGIX My Application 2.0.35.2965</c>, where <c>xyLOGIX</c> is the
+        /// <c>Short Company Name</c>, <c>My Application</c> is the <c>Product Name</c>,
+        /// and <c>2.0.35.2965</c> is the <c>Version</c>.
+        /// </remarks>
+        public static string FormalApplicationName
+        {
+            get
+            {
+                var result = string.Empty;
+
+                try
+                {
+                    var product = AssemblyProduct;
+                    if (string.IsNullOrWhiteSpace(product))
+                        return result;
+                    var version = AssemblyVersion;
+                    if (string.IsNullOrWhiteSpace(version))
+                        return result;
+
+                    result = $"{product} {version}";
+                }
+                catch (Exception ex)
+                {
+                    // dump all the exception info to the log
+                    DebugUtils.LogException(ex);
+
+                    result = string.Empty;
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
         /// Gets the shortened form of the name of the company that is associated
         /// with the target assembly.
         /// </summary>
@@ -367,7 +407,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (string.IsNullOrWhiteSpace(ShortCompanyName))
                         return result;
 
-                    result = AssemblyProduct.Replace(ShortCompanyName, "")
+                    result = AssemblyProduct.Replace(AssemblyCompany, "")
+                                            .Replace(ShortCompanyName, "")
                                             .Trim();
                 }
                 catch (Exception ex)
