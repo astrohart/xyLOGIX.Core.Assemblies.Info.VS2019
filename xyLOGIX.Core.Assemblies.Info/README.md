@@ -11,6 +11,7 @@
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyTitle')
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
   - [DesiredAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-DesiredAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.DesiredAssembly')
+  - [FormalApplicationName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-FormalApplicationName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.FormalApplicationName')
   - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
   - [UseExecutingAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.UseExecutingAssembly')
@@ -136,6 +137,21 @@ Gets or sets a reference to an instance of
 [Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
 that indicates which `Assembly` metadata to use for the values of the
 properties.
+
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-FormalApplicationName'></a>
+### FormalApplicationName `property`
+
+##### Summary
+
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the formal name of the
+application.
+
+##### Remarks
+
+The formal name is something such as
+`xyLOGIX My Application 2.0.35.2965`, where `xyLOGIX` is the
+`Short Company Name`, `My Application` is the `Product Name`,
+and `2.0.35.2965` is the `Version`.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
 ### ShortCompanyName `property`
