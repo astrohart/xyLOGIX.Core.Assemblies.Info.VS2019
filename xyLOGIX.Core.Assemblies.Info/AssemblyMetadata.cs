@@ -634,7 +634,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         [ExplicitlySynchronized]
-        internal static class Get
+        public static class Get
         {
             /// <summary>
             /// Attempts to get the <see cref="T:System.Reflection.Assembly" />

@@ -11,7 +11,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <see cref="T:System.Diagnostics.StackFrame" /> class.
     /// </summary>
     [Log(AttributeExclude = true)]
-    internal static class StackFrameExtensions
+    public static class StackFrameExtensions
     {
         /// <summary>
         /// Attempts to obtain a reference to the
@@ -30,7 +30,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// assembly that contains the method that is at the current stack
         /// <paramref name="frame" />; <see langword="null" /> otherwise.
         /// </returns>
-        internal static Assembly GetDeclaringAssembly(this StackFrame frame)
+        public static Assembly GetDeclaringAssembly(this StackFrame frame)
         {
             Assembly result = default;
 

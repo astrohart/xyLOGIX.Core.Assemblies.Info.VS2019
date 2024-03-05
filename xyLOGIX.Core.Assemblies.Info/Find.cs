@@ -15,7 +15,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// Reflection.
     /// </summary>
     [Log(AttributeExclude = true)]
-    internal static class Find
+    public static class Find
     {
         /// <summary>
         /// Attempts to obtain a collection of references to instances of
@@ -32,7 +32,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// specified <paramref name="executingAssembly" /> is returned.
         /// </returns>
         /// <remarks>If there is an issue that is experienced </remarks>
-        internal static IReadOnlyList<Assembly> AllAssembliesThatDependOn(
+        public static IReadOnlyList<Assembly> AllAssembliesThatDependOn(
             Assembly executingAssembly
         )
         {
