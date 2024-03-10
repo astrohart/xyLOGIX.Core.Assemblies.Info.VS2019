@@ -16,6 +16,7 @@
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
   - [UseExecutingAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.UseExecutingAssembly')
   - [HasWhiteSpace(value)](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-HasWhiteSpace-System-String- 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.HasWhiteSpace(System.String)')
+  - [IsNetCore()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-IsNetCore 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.IsNetCore')
 - [AssemblyReferenceRequestedEventHandler](#T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler')
 - [Find](#T-xyLOGIX-Core-Assemblies-Info-Find 'xyLOGIX.Core.Assemblies.Info.Find')
   - [AllAssembliesThatDependOn(executingAssembly)](#M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly- 'xyLOGIX.Core.Assemblies.Info.Find.AllAssembliesThatDependOn(System.Reflection.Assembly)')
@@ -230,6 +231,22 @@ contains any whitespace characters; `false` otherwise.
 | ---- | ---- | ----------- |
 | value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value that is to be
 checked for whitespace. |
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-IsNetCore'></a>
+### IsNetCore() `method`
+
+##### Summary
+
+Determines whether we're running on `.NET Core` or `.NET Framework`.
+
+##### Returns
+
+`true` if this code is running on `.NET Core`;
+else, `false` for `.NET Framework`.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler'></a>
 ## AssemblyReferenceRequestedEventHandler `type`

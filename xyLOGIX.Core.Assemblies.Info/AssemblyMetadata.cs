@@ -4,6 +4,7 @@ using PostSharp.Patterns.Threading;
 using System;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using xyLOGIX.Core.Debug;
 
@@ -39,7 +40,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     var attributes = assemblyToUse.GetCustomAttributes(
                         typeof(AssemblyCompanyAttribute), false
                     );
-                    if (attributes == null || !attributes.Any()) return result;
+                    if (attributes == null || !attributes.Any())
+                        return result;
 
                     if (!(attributes.First() is AssemblyCompanyAttribute
                             companyAttribute))
@@ -626,6 +628,35 @@ namespace xyLOGIX.Core.Assemblies.Info
             {
                 // dump all the exception info to the log
                 Console.WriteLine(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether we're running on <c>.NET Core</c> or <c>.NET Framework</c>.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this code is running on <c>.NET Core</c>;
+        /// else, <see langword="false" /> for <c>.NET Framework</c>.
+        /// </returns>
+        private static bool IsNetCore()
+        {
+            bool result;
+
+            try
+            {
+                result =
+                    !RuntimeInformation.FrameworkDescription.StartsWith(
+                        ".NET Framework"
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
 
                 result = false;
             }
