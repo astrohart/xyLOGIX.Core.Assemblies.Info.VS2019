@@ -387,7 +387,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// company.
         /// </summary>
         /// <remarks>
-        /// This useful, e.g., for error messages.  Instead of, "
+        /// This is useful, e.g., for error messages.  Instead of, "
         /// <c>MyCompany MyApp could not locate the file</c>," you can instead say, "
         /// <c>MyApp could not locate the file</c>."
         /// <para />
@@ -569,7 +569,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 if (AssemblyTitle.HasWhiteSpace())
                 {
                     Console.WriteLine(
-                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** The value of the AssemblyTitle property has whitespace characters in it.  This invalid; the title of the assembly cannot contain any whitespace characters.  Stopping..."
+                        "AssemblyMetadata.PropertiesHaveValidValues: *** ERROR *** The value of the AssemblyTitle property has whitespace characters in it.  This is invalid; the title of the assembly cannot contain any whitespace characters.  Stopping..."
                     );
 
                     return result;
