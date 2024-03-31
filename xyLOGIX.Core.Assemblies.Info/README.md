@@ -187,7 +187,7 @@ company.
 
 ##### Remarks
 
-This useful, e.g., for error messages.  Instead of, "
+This is useful, e.g., for error messages.  Instead of, "
 `MyCompany MyApp could not locate the file`," you can instead say, "
 `MyApp could not locate the file`."
 
