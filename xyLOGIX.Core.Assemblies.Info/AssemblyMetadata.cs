@@ -297,7 +297,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// that indicates which <c>Assembly</c> metadata to use for the values of the
         /// properties.
         /// </summary>
-        public static Assembly DesiredAssembly { get; set; } =
+        public static Assembly DesiredAssembly { [DebuggerStepThrough] get; [DebuggerStepThrough] set; } =
             Assembly.GetEntryAssembly();
 
         /// <summary>
@@ -429,7 +429,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// etc.
         /// </summary>
         /// <remarks>The default value of this property is <see langword="false" />.</remarks>
-        public static bool UseExecutingAssembly { get; set; }
+        public static bool UseExecutingAssembly { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
 
         public static bool PropertiesHaveValidValues()
         {
