@@ -61,7 +61,7 @@ namespace xyLOGIX.Core.Assemblies.Info.Properties
             {
                 return resourceCulture;
             }
-            set
+            [DebuggerStepThrough] set
             {
                 resourceCulture = value;
             }
