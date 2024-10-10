@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace xyLOGIX.Core.Assemblies.Info
