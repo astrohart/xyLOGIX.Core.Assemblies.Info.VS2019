@@ -1,15 +1,12 @@
-using System.Diagnostics;
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using Core.Logging;
-using Core.Logging.Constants;
-using Core.Logging.Events;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
@@ -300,8 +297,11 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// that indicates which <c>Assembly</c> metadata to use for the values of the
         /// properties.
         /// </summary>
-        public static Assembly DesiredAssembly { [DebuggerStepThrough] get; [DebuggerStepThrough] set; } =
-            Assembly.GetEntryAssembly();
+        public static Assembly DesiredAssembly
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        } = Assembly.GetEntryAssembly();
 
         /// <summary>
         /// Gets a <see cref="T:System.String" /> that contains the formal name of the
@@ -432,7 +432,11 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// etc.
         /// </summary>
         /// <remarks>The default value of this property is <see langword="false" />.</remarks>
-        public static bool UseExecutingAssembly { [DebuggerStepThrough] get; [DebuggerStepThrough] set; }
+        public static bool UseExecutingAssembly
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
 
         public static bool PropertiesHaveValidValues()
         {
