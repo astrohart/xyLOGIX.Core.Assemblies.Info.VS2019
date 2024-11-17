@@ -1,11 +1,13 @@
-﻿using PostSharp.Patterns.Collections;
+using PostSharp.Patterns.Collections;
 using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using xyLOGIX.Core.Debug;
+using Core.Logging;
+using Core.Logging.Constants;
+using Core.Logging.Events;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {

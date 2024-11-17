@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Alphaleonis.Win32.Filesystem;
 using PostSharp.Patterns.Diagnostics;
 using PostSharp.Patterns.Threading;
@@ -7,7 +7,9 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using xyLOGIX.Core.Debug;
+using Core.Logging;
+using Core.Logging.Constants;
+using Core.Logging.Events;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
