@@ -16,6 +16,6 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// is to be used for extracting metadata.
     /// </returns>
     public delegate Assembly AssemblyReferenceRequestedEventHandler(
-        EventArgs e
+        [NotLogged] EventArgs e
     );
 }
