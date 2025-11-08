@@ -48,11 +48,10 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 result = stackTraceFrames.Select(x => x.GetDeclaringAssembly())
                                          .Distinct()
-                                         .Where(
-                                             assembly
-                                                 => assembly.DependsOn(
-                                                     executingAssembly
-                                                 )
+                                         .Where(assembly
+                                             => assembly.DependsOn(
+                                                 executingAssembly
+                                             )
                                          )
                                          .ToAdvisableCollection();
             }
@@ -107,8 +106,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     !referringAssemblyNames.Any())
                     return result;
 
-                result = referringAssemblyNames.Any(
-                    name => name.FullName.Equals(executingAssembly.FullName)
+                result = referringAssemblyNames.Any(name
+                    => name.FullName.Equals(executingAssembly.FullName)
                 );
             }
             catch (Exception ex)
