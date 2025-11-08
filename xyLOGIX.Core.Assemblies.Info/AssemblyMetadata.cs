@@ -439,6 +439,70 @@ namespace xyLOGIX.Core.Assemblies.Info
             [DebuggerStepThrough] set;
         }
 
+        /// <summary>
+        /// Determines if the specified <see cref="T:System.String" /> parameter,
+        /// <paramref name="value" />, is a string that is non-blank but also contains any
+        /// whitespace.
+        /// </summary>
+        /// <param name="value">
+        /// (Required.) A <see cref="T:System.String" /> containing the value that is to be
+        /// checked for whitespace.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified <paramref name="value" />
+        /// contains any whitespace characters; <see langword="false" /> otherwise.
+        /// </returns>
+        private static bool HasWhiteSpace(this string value)
+        {
+            var result = false;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(value)) return true;
+
+                result = Regex.Matches(value, @"\s+")
+                              .Count > 0;
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                Console.WriteLine(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Determines whether we're running on <c>.NET Core</c> or <c>.NET Framework</c>.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this code is running on <c>.NET Core</c>;
+        /// else, <see langword="false" /> for <c>.NET Framework</c>.
+        /// </returns>
+        private static bool IsNetCore()
+        {
+            bool result;
+
+            try
+            {
+                result =
+                    !RuntimeInformation.FrameworkDescription.StartsWith(
+                        ".NET Framework"
+                    );
+            }
+            catch (Exception ex)
+            {
+                // dump all the exception info to the log
+                DebugUtils.LogException(ex);
+
+                result = false;
+            }
+
+            return result;
+        }
+
         public static bool PropertiesHaveValidValues()
         {
             var result = false;
@@ -604,70 +668,6 @@ namespace xyLOGIX.Core.Assemblies.Info
             Console.WriteLine(
                 $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
             );
-
-            return result;
-        }
-
-        /// <summary>
-        /// Determines if the specified <see cref="T:System.String" /> parameter,
-        /// <paramref name="value" />, is a string that is non-blank but also contains any
-        /// whitespace.
-        /// </summary>
-        /// <param name="value">
-        /// (Required.) A <see cref="T:System.String" /> containing the value that is to be
-        /// checked for whitespace.
-        /// </param>
-        /// <returns>
-        /// <see langword="true" /> if the specified <paramref name="value" />
-        /// contains any whitespace characters; <see langword="false" /> otherwise.
-        /// </returns>
-        private static bool HasWhiteSpace(this string value)
-        {
-            var result = false;
-
-            try
-            {
-                if (string.IsNullOrWhiteSpace(value)) return true;
-
-                result = Regex.Matches(value, @"\s+")
-                              .Count > 0;
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                Console.WriteLine(ex);
-
-                result = false;
-            }
-
-            return result;
-        }
-
-        /// <summary>
-        /// Determines whether we're running on <c>.NET Core</c> or <c>.NET Framework</c>.
-        /// </summary>
-        /// <returns>
-        /// <see langword="true" /> if this code is running on <c>.NET Core</c>;
-        /// else, <see langword="false" /> for <c>.NET Framework</c>.
-        /// </returns>
-        private static bool IsNetCore()
-        {
-            bool result;
-
-            try
-            {
-                result =
-                    !RuntimeInformation.FrameworkDescription.StartsWith(
-                        ".NET Framework"
-                    );
-            }
-            catch (Exception ex)
-            {
-                // dump all the exception info to the log
-                DebugUtils.LogException(ex);
-
-                result = false;
-            }
 
             return result;
         }
