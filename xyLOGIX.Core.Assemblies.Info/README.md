@@ -28,6 +28,10 @@
   - [AssemblyTitle](#P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle 'xyLOGIX.Core.Assemblies.Info.Get.AssemblyTitle')
   - [AssemblyToUse()](#M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.Get.AssemblyToUse')
   - [#cctor()](#M-xyLOGIX-Core-Assemblies-Info-Get-#cctor 'xyLOGIX.Core.Assemblies.Info.Get.#cctor')
+- [InternalStringExtensions](#T-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions 'xyLOGIX.Core.Assemblies.Info.InternalStringExtensions')
+  - [#cctor()](#M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-#cctor 'xyLOGIX.Core.Assemblies.Info.InternalStringExtensions.#cctor')
+  - [TrimEnd(target,trimString)](#M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-TrimEnd-System-String,System-String- 'xyLOGIX.Core.Assemblies.Info.InternalStringExtensions.TrimEnd(System.String,System.String)')
+  - [TrimStart(target,trimString)](#M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-TrimStart-System-String,System-String- 'xyLOGIX.Core.Assemblies.Info.InternalStringExtensions.TrimStart(System.String,System.String)')
 - [Resources](#T-xyLOGIX-Core-Assemblies-Info-Properties-Resources 'xyLOGIX.Core.Assemblies.Info.Properties.Resources')
   - [Culture](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-Culture 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.Culture')
   - [ResourceManager](#P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-ResourceManager 'xyLOGIX.Core.Assemblies.Info.Properties.Resources.ResourceManager')
@@ -437,6 +441,101 @@ This method has no parameters.
 
 This constructor is called automatically prior to the first instance being
 created or before any static members are referenced.
+
+<a name='T-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions'></a>
+## InternalStringExtensions `type`
+
+##### Namespace
+
+xyLOGIX.Core.Assemblies.Info
+
+##### Summary
+
+Provides method(s) and property(ies) to assist with manipulating
+[String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String')(s) of text.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-#cctor'></a>
+### #cctor() `method`
+
+##### Summary
+
+Initializes `static` data or performs actions that
+need to be performed once only for the
+[InternalStringExtensions](#T-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions 'xyLOGIX.Core.Assemblies.Info.InternalStringExtensions') class.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Remarks
+
+This constructor is called automatically prior to the first instance
+being created or before any `static` members are referenced.
+
+
+
+We've decorated this constructor with the `[Log(AttributeExclude = true)]`
+attribute in order to simplify the logging output.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-TrimEnd-System-String,System-String-'></a>
+### TrimEnd(target,trimString) `method`
+
+##### Summary
+
+Removes the `trimString`, if present, from the end
+of the specified `target`.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the trimmed
+version of `target` with the specified
+`trimString` removed from the end of it; otherwise, the
+method is idempotent.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that is to be
+trimmed. |
+| trimString | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the character(s) that are to be trimmed. |
+
+##### Remarks
+
+If either of the required parameters, `target`, or
+`trimString`, are `null`, blank, or the
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value, then this method is idempotent.
+
+<a name='M-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions-TrimStart-System-String,System-String-'></a>
+### TrimStart(target,trimString) `method`
+
+##### Summary
+
+Removes the `trimString`, if present, from the start of the
+specified `target`.
+
+##### Returns
+
+If successful, a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the trimmed
+version of `target` with the specified
+`trimString` removed from the start of it; otherwise, the
+method is idempotent.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| target | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that is to be
+trimmed. |
+| trimString | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that
+contains the character(s) that are to be trimmed. |
+
+##### Remarks
+
+If either of the required parameters, `target`, or
+`trimString`, are `null`, blank, or the
+[Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value, then this method is idempotent.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Properties-Resources'></a>
 ## Resources `type`
