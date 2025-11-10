@@ -351,13 +351,13 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// In order to work, this property must be set prior to making any calls
         /// to set up the logging infrastructure.
         /// <para />
-        /// The default value of this property is <see langword="false" />.
+        /// The default value of this property is <see langword="true" />.
         /// </remarks>
         public static bool RemoveCompanyFromShortProduct
         {
             [DebuggerStepThrough] get;
             [DebuggerStepThrough] set;
-        }
+        } = true;
 
         /// <summary>
         /// Gets the shortened form of the name of the company that is associated
