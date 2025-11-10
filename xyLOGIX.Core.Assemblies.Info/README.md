@@ -174,7 +174,7 @@ to set up the logging infrastructure.
 
 
 
-The default value of this property is `false`.
+The default value of this property is `true`.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
 ### ShortCompanyName `property`
