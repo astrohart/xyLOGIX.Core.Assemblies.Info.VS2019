@@ -344,6 +344,22 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
+        /// Gets a value that determines whether the company name is to be removed from the
+        /// short product name.
+        /// </summary>
+        /// <remarks>
+        /// In order to work, this property must be set prior to making any calls
+        /// to set up the logging infrastructure.
+        /// <para />
+        /// The default value of this property is <see langword="false" />.
+        /// </remarks>
+        public static bool RemoveCompanyFromShortProduct
+        {
+            [DebuggerStepThrough] get;
+            [DebuggerStepThrough] set;
+        }
+
+        /// <summary>
         /// Gets the shortened form of the name of the company that is associated
         /// with the target assembly.
         /// </summary>
@@ -387,18 +403,27 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Obtains the name of the application's product without the name of the
-        /// company.
+        /// Obtains the name of the application's product without the name of the company
+        /// at the start.
+        /// <para />
+        /// This property ordinarily will preserve the company name if it appears anywhere
+        /// else in the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
+        /// property, except if the
+        /// <see
+        ///     cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.RemoveCompanyFromShortProduct" />
+        /// property is set to <see langword="true" />.
         /// </summary>
         /// <remarks>
-        /// This is useful, e.g., for error messages.  Instead of, "
-        /// <c>MyCompany MyApp could not locate the file</c>," you can instead say, "
-        /// <c>MyApp could not locate the file</c>."
+        /// This is useful, e.g., for error messages.
+        /// <para />
+        /// Instead of, "<c>MyCompany MyApp could not locate the file</c>," you can instead
+        /// say, "<c>MyApp could not locate the file</c>."
         /// <para />
         /// This property returns the value of the
         /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
-        /// property
-        /// if the shortened form of the product name could not otherwise be determined.
+        /// property if the shortened form of the product name could not otherwise be
+        /// determined.
         /// </remarks>
         public static string ShortProductName
         {
@@ -415,11 +440,12 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                     var target = ShortCompanyName + " ";
 
-                    result =
-                        AssemblyProduct.StartsWith(target)
-                            ? AssemblyProduct.TrimStart(
-                                target
-                            )
+                    result = AssemblyProduct.StartsWith(target)
+                        ?
+                        AssemblyProduct.TrimStart(target)
+                        : RemoveCompanyFromShortProduct
+                            ? AssemblyProduct.Replace(target, string.Empty)
+                                             .Trim()
                             : AssemblyProduct.Trim();
                 }
                 catch (Exception ex)
