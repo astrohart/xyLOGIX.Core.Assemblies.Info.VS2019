@@ -12,6 +12,7 @@
   - [AssemblyVersion](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyVersion')
   - [DesiredAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-DesiredAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.DesiredAssembly')
   - [FormalApplicationName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-FormalApplicationName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.FormalApplicationName')
+  - [RemoveCompanyFromShortProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-RemoveCompanyFromShortProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.RemoveCompanyFromShortProduct')
   - [ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
   - [ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
   - [UseExecutingAssembly](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.UseExecutingAssembly')
@@ -158,6 +159,23 @@ The formal name is something such as
 `Short Company Name`, `My Application` is the `Product Name`,
 and `2.0.35.2965` is the `Version`.
 
+<a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-RemoveCompanyFromShortProduct'></a>
+### RemoveCompanyFromShortProduct `property`
+
+##### Summary
+
+Gets a value that determines whether the company name is to be removed from the
+short product name.
+
+##### Remarks
+
+In order to work, this property must be set prior to making any calls
+to set up the logging infrastructure.
+
+
+
+The default value of this property is `false`.
+
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
 ### ShortCompanyName `property`
 
@@ -186,21 +204,33 @@ could not interrogate the target assembly for the requested information.
 
 ##### Summary
 
-Obtains the name of the application's product without the name of the
-company.
+Obtains the name of the application's product without the name of the company
+at the start.
+
+
+
+This property ordinarily will preserve the company name if it appears anywhere
+else in the value of the
+[AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
+property, except if the
+[RemoveCompanyFromShortProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-RemoveCompanyFromShortProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.RemoveCompanyFromShortProduct')
+property is set to `true`.
 
 ##### Remarks
 
-This is useful, e.g., for error messages.  Instead of, "
-`MyCompany MyApp could not locate the file`," you can instead say, "
-`MyApp could not locate the file`."
+This is useful, e.g., for error messages.
+
+
+
+Instead of, "`MyCompany MyApp could not locate the file`," you can instead
+say, "`MyApp could not locate the file`."
 
 
 
 This property returns the value of the
 [AssemblyProduct](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyProduct 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct')
-property
-if the shortened form of the product name could not otherwise be determined.
+property if the shortened form of the product name could not otherwise be
+determined.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-UseExecutingAssembly'></a>
 ### UseExecutingAssembly `property`
