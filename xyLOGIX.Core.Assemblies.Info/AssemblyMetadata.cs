@@ -344,14 +344,24 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets a value that determines whether the company name is to be removed from the
-        /// short product name.
+        /// Gets a value that determines whether the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" />
+        /// property is to be removed from the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" />
+        /// property.
         /// </summary>
         /// <remarks>
-        /// In order to work, this property must be set prior to making any calls
-        /// to set up the logging infrastructure.
+        /// In order to work, this property must be set prior to making any calls to set up
+        /// the logging infrastructure.
         /// <para />
         /// The default value of this property is <see langword="true" />.
+        /// <para />
+        /// <b>NOTE:</b> The value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" />
+        /// property is always removed from the start of the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" />
+        /// property, regardless of the value of this property.
+        /// <para />
         /// </remarks>
         public static bool RemoveCompanyFromShortProduct
         {
