@@ -164,17 +164,28 @@ and `2.0.35.2965` is the `Version`.
 
 ##### Summary
 
-Gets a value that determines whether the company name is to be removed from the
-short product name.
+Gets a value that determines whether the value of the
+[ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
+property is to be removed from the value of the
+[ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
+property.
 
 ##### Remarks
 
-In order to work, this property must be set prior to making any calls
-to set up the logging infrastructure.
+In order to work, this property must be set prior to making any calls to set up
+the logging infrastructure.
 
 
 
 The default value of this property is `true`.
+
+
+
+The value of the
+[ShortCompanyName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName')
+property is always removed from the start of the value of the
+[ShortProductName](#P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortProductName 'xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName')
+property, regardless of the value of this property.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-ShortCompanyName'></a>
 ### ShortCompanyName `property`
