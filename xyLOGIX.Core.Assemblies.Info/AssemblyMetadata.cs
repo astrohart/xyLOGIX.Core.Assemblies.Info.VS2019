@@ -413,9 +413,14 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (string.IsNullOrWhiteSpace(ShortCompanyName))
                         return result;
 
-                    result = AssemblyProduct.Replace(AssemblyCompany, "")
-                                            .Replace(ShortCompanyName, "")
-                                            .Trim();
+                    var target = ShortCompanyName + " ";
+
+                    result =
+                        AssemblyProduct.StartsWith(target)
+                            ? AssemblyProduct.TrimStart(
+                                target
+                            )
+                            : AssemblyProduct.Trim();
                 }
                 catch (Exception ex)
                 {
