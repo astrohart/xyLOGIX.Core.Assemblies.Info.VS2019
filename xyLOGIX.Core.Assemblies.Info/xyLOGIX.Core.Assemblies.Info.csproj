@@ -118,6 +118,7 @@
     <Compile Include="Find.cs" />
     <Compile Include="Get.cs" />
     <Compile Include="GlobalAspects.cs" />
+    <Compile Include="InternalStringExtensions.cs" />
     <Compile Include="StackFrameExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
