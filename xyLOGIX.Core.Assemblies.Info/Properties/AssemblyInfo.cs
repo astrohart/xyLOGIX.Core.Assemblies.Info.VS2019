@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("xyLOGIX.Core.Assemblies.Info")]
 [assembly:
     AssemblyDescription(
-        "Provides objects and functionality for deriving information about a .NET assembly, such as its title, product name, and company name etc."
+        "Provides object(s) and functionality for deriving information about a .NET assembly, such as its title, product name, and company name etc."
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
