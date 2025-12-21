@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
     )]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("xyLOGIX, LLC")]
-[assembly: AssemblyProduct("xyLOGIX Support Library for Assembly Information")]
+[assembly: AssemblyProduct("Assembly Information")]
 [assembly:
     AssemblyCopyright(
         "Copyright © 2021-25 by xyLOGIX, LLC.  All rights reserved."
