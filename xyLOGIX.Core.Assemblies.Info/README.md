@@ -112,14 +112,8 @@ if it could not interrogate the target assembly for the requested information.
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
-`[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file
-of the calling assembly.
-
-##### Remarks
-
-This property returns the [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') value
-if it could not interrogate the target assembly for the requested information.
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
+`AssemblyTitle` attribute to be applied to the cloned project.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion'></a>
 ### AssemblyVersion `property`
