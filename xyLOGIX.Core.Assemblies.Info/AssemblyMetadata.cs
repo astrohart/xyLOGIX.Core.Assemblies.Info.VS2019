@@ -201,14 +201,9 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> that contains the value of the
-        /// <c>[assembly: AssemblyTitle]</c> attribute from the <c>AssemblyInfo.cs</c> file
-        /// of the calling assembly.
+        /// Gets or sets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>AssemblyTitle</c> attribute to be applied to the cloned project.
         /// </summary>
-        /// <remarks>
-        /// This property returns the <see cref="F:System.String.Empty" /> value
-        /// if it could not interrogate the target assembly for the requested information.
-        /// </remarks>
         public static string AssemblyTitle
         {
             get
