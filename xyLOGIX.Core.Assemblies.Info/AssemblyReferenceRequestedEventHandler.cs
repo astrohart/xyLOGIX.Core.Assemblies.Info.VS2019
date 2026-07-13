@@ -9,14 +9,13 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <c>AssemblyReferenceRequested</c> event.
     /// </summary>
     /// <param name="e">
-    /// (Required.) A <see cref="T:System.EventArgs" /> that contains the event data.
+    /// (Required.) A <see cref="T:System.EventArgs" /> that contains
+    /// the event data.
     /// </param>
     /// <returns>
     /// If successful, a reference to an instance of
     /// <see cref="T:System.Reflection.Assembly" /> that indicates which .NET assembly
     /// is to be used for extracting metadata.
     /// </returns>
-    public delegate Assembly AssemblyReferenceRequestedEventHandler(
-        [NotLogged] EventArgs e
-    );
+    public delegate Assembly AssemblyReferenceRequestedEventHandler([NotLogged] EventArgs e);
 }
