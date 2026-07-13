@@ -44,8 +44,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (attributes == null || !attributes.Any())
                         return result;
 
-                    if (!(attributes.First() is AssemblyCompanyAttribute
-                            companyAttribute))
+                    if (!(attributes.First() is AssemblyCompanyAttribute companyAttribute))
                         return result;
 
                     if (string.IsNullOrWhiteSpace(companyAttribute.Company))
@@ -90,8 +89,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     );
                     if (attributes == null || !attributes.Any())
                         return result;
-                    if (!(attributes.First() is AssemblyCopyrightAttribute
-                            copyrightAttribute)) return result;
+                    if (!(attributes.First() is AssemblyCopyrightAttribute copyrightAttribute))
+                        return result;
                     if (string.IsNullOrWhiteSpace(copyrightAttribute.Copyright))
                         return result;
 
@@ -134,11 +133,9 @@ namespace xyLOGIX.Core.Assemblies.Info
                     );
                     if (attributes == null || !attributes.Any())
                         return result;
-                    if (!(attributes.First() is AssemblyDescriptionAttribute
-                            descriptionAttribute)) return result;
-                    if (string.IsNullOrWhiteSpace(
-                            descriptionAttribute.Description
-                        ))
+                    if (!(attributes.First() is AssemblyDescriptionAttribute descriptionAttribute))
+                        return result;
+                    if (string.IsNullOrWhiteSpace(descriptionAttribute.Description))
                         return result;
 
                     result = descriptionAttribute.Description;
@@ -181,8 +178,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (attributes == null || !attributes.Any())
                         return result;
 
-                    if (!(attributes.First() is AssemblyProductAttribute
-                            productAttribute)) return result;
+                    if (!(attributes.First() is AssemblyProductAttribute productAttribute))
+                        return result;
                     if (string.IsNullOrWhiteSpace(productAttribute.Product))
                         return result;
 
@@ -201,8 +198,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets or sets a <see cref="T:System.String" /> that contains the value of the
-        /// <c>AssemblyTitle</c> attribute to be applied to the cloned project.
+        /// Gets or sets a <see cref="T:System.String" /> that contains the value
+        /// of the <c>AssemblyTitle</c> attribute to be applied to the cloned project.
         /// </summary>
         public static string AssemblyTitle
         {
@@ -219,9 +216,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (string.IsNullOrWhiteSpace(assemblyToUse.Location))
                         return result;
 
-                    result = Path.GetFileNameWithoutExtension(
-                        assemblyToUse.Location
-                    );
+                    result = Path.GetFileNameWithoutExtension(assemblyToUse.Location);
 
                     var attributes = assemblyToUse.GetCustomAttributes(
                         typeof(AssemblyTitleAttribute), false
@@ -230,8 +225,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                         return result;
 
                     var titleAttribute = (AssemblyTitleAttribute)attributes[0];
-                    if (titleAttribute == null ||
-                        string.IsNullOrWhiteSpace(titleAttribute.Title))
+                    if (titleAttribute == null || string.IsNullOrWhiteSpace(titleAttribute.Title))
                         return result;
 
                     result = titleAttribute.Title;
@@ -289,19 +283,20 @@ namespace xyLOGIX.Core.Assemblies.Info
 
         /// <summary>
         /// Gets or sets a reference to an instance of
-        /// <see cref="T:System.Reflection.Assembly" />
-        /// that indicates which <c>Assembly</c> metadata to use for the values of the
-        /// properties.
+        /// <see cref="T:System.Reflection.Assembly" /> that indicates which
+        /// <c>Assembly</c> metadata to use for the values of the properties.
         /// </summary>
         public static Assembly DesiredAssembly
         {
-            [DebuggerStepThrough] get;
-            [DebuggerStepThrough] set;
+            [DebuggerStepThrough]
+            get;
+            [DebuggerStepThrough]
+            set;
         } = Assembly.GetEntryAssembly();
 
         /// <summary>
-        /// Gets a <see cref="T:System.String" /> that contains the formal name of the
-        /// application.
+        /// Gets a <see cref="T:System.String" /> that contains the formal name of
+        /// the application.
         /// </summary>
         /// <remarks>
         /// The formal name is something such as
@@ -346,8 +341,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// property.
         /// </summary>
         /// <remarks>
-        /// In order to work, this property must be set prior to making any calls to set up
-        /// the logging infrastructure.
+        /// In order to work, this property must be set prior to making any calls
+        /// to set up the logging infrastructure.
         /// <para />
         /// The default value of this property is <see langword="true" />.
         /// <para />
@@ -360,8 +355,10 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// </remarks>
         public static bool RemoveCompanyFromShortProduct
         {
-            [DebuggerStepThrough] get;
-            [DebuggerStepThrough] set;
+            [DebuggerStepThrough]
+            get;
+            [DebuggerStepThrough]
+            set;
         } = true;
 
         /// <summary>
@@ -392,10 +389,9 @@ namespace xyLOGIX.Core.Assemblies.Info
                     var commaIndex = AssemblyCompany.IndexOf(',');
                     if (commaIndex < 0) return result; // comma not found
 
-                    result =
-                        AssemblyCompany.Remove(
-                            commaIndex
-                        ); // remove ', LLC' for example, from company name
+                    result = AssemblyCompany.Remove(
+                        commaIndex
+                    ); // remove ', LLC' for example, from company name
                 }
                 catch (Exception ex)
                 {
@@ -464,15 +460,17 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Gets or sets a value indicating whether the currently-executing assembly is to
-        /// be utilized for gathering information such as product name, company, version
-        /// etc.
+        /// Gets or sets a value indicating whether the currently-executing
+        /// assembly is to be utilized for gathering information such as product name,
+        /// company, version etc.
         /// </summary>
         /// <remarks>The default value of this property is <see langword="false" />.</remarks>
         public static bool UseExecutingAssembly
         {
-            [DebuggerStepThrough] get;
-            [DebuggerStepThrough] set;
+            [DebuggerStepThrough]
+            get;
+            [DebuggerStepThrough]
+            set;
         }
 
         /// <summary>
@@ -481,8 +479,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// whitespace.
         /// </summary>
         /// <param name="value">
-        /// (Required.) A <see cref="T:System.String" /> containing the value that is to be
-        /// checked for whitespace.
+        /// (Required.) A <see cref="T:System.String" /> containing the
+        /// value that is to be checked for whitespace.
         /// </param>
         /// <returns>
         /// <see langword="true" /> if the specified <paramref name="value" />
@@ -511,7 +509,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Determines whether we're running on <c>.NET Core</c> or <c>.NET Framework</c>.
+        /// Determines whether we're running on <c>.NET Core</c> or
+        /// <c>.NET Framework</c>.
         /// </summary>
         /// <returns>
         /// <see langword="true" /> if this code is running on <c>.NET Core</c>;
@@ -523,10 +522,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
             try
             {
-                result =
-                    !RuntimeInformation.FrameworkDescription.StartsWith(
-                        ".NET Framework"
-                    );
+                result = !RuntimeInformation.FrameworkDescription.StartsWith(".NET Framework");
             }
             catch (Exception ex)
             {
@@ -701,9 +697,7 @@ namespace xyLOGIX.Core.Assemblies.Info
                 result = false;
             }
 
-            Console.WriteLine(
-                $"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}"
-            );
+            Console.WriteLine($"AssemblyMetadata.PropertiesHaveValidValues: Result = {result}");
 
             return result;
         }
@@ -724,7 +718,7 @@ namespace xyLOGIX.Core.Assemblies.Info
             /// This library can be called either from a unit test, or from a EXE.
             /// <para />
             /// We basically ask the calling assembly whether its pathname ends with
-            /// <c>Tests.dll</c>.  If affirmative, then the return value of the
+            /// <c>Tests.dll</c>. If affirmative, then the return value of the
             /// <see cref="M:System.Reflection.Assembly.GetCallingAssembly" /> method is
             /// fetched.
             /// <para />
@@ -756,16 +750,13 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (UseExecutingAssembly && executingAssembly != null)
                         return executingAssembly;
 
-                    var ancestors =
-                        Find.AllAssembliesThatDependOn(executingAssembly);
+                    var ancestors = Find.AllAssembliesThatDependOn(executingAssembly);
                     if (ancestors == null || !ancestors.Any())
                         return result;
 
-                    /*
-                     * The call stack frames go in reverse order, from the currently-executing
-                     * method, down to the initial assembly that call the
-                     * calling method.  This the entry we want.
-                     */
+                    /* The call stack frames go in reverse order, from the currently-executing
+                     method, down to the initial assembly that call the calling method. This the
+                     entry we want. */
 
                     var initialAssembly = ancestors.Last();
                     if (initialAssembly == null) return result;
@@ -779,7 +770,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                     result = initialAssemblyPathname.EndsWith("Tests.dll")
                         ? initialAssembly
                         : Assembly
-                            .GetEntryAssembly(); // If we aren't unit-testing, the entry assembly does fine
+                            .GetEntryAssembly(); // If we aren't unit-testing, the entry assembly
+                                                 // does fine
                 }
                 catch (Exception ex)
                 {
