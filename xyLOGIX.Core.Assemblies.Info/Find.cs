@@ -10,9 +10,8 @@ using xyLOGIX.Core.Debug;
 namespace xyLOGIX.Core.Assemblies.Info
 {
     /// <summary>
-    /// Exposes <see langword="static" /> methods to find information on assemblies
-    /// through
-    /// Reflection.
+    /// Exposes <see langword="static" /> methods to find information on
+    /// assemblies through Reflection.
     /// </summary>
     [Log(AttributeExclude = true)]
     public static class Find
@@ -31,10 +30,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// <paramref name="executingAssembly" /> in the call stack that refer to the
         /// specified <paramref name="executingAssembly" /> is returned.
         /// </returns>
-        /// <remarks>If there is an issue that is experienced </remarks>
-        public static IReadOnlyList<Assembly> AllAssembliesThatDependOn(
-            Assembly executingAssembly
-        )
+        /// <remarks>If there is an issue that is experienced</remarks>
+        public static IReadOnlyList<Assembly> AllAssembliesThatDependOn(Assembly executingAssembly)
         {
             var result = Enumerable.Empty<Assembly>()
                                    .ToAdvisableCollection();
@@ -48,11 +45,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 result = stackTraceFrames.Select(x => x.GetDeclaringAssembly())
                                          .Distinct()
-                                         .Where(assembly
-                                             => assembly.DependsOn(
-                                                 executingAssembly
-                                             )
-                                         )
+                                         .Where(assembly => assembly.DependsOn(executingAssembly))
                                          .ToAdvisableCollection();
             }
             catch (Exception ex)
@@ -89,10 +82,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// This method also returns <see langword="false" /> if information is
         /// missing or a system error occurs during the operation.
         /// </remarks>
-        private static bool DependsOn(
-            this Assembly currentAssembly,
-            Assembly executingAssembly
-        )
+        private static bool DependsOn(this Assembly currentAssembly, Assembly executingAssembly)
         {
             var result = false;
 
@@ -100,10 +90,8 @@ namespace xyLOGIX.Core.Assemblies.Info
             {
                 if (currentAssembly == null) return result;
 
-                var referringAssemblyNames =
-                    currentAssembly.GetReferencedAssemblies();
-                if (referringAssemblyNames == null ||
-                    !referringAssemblyNames.Any())
+                var referringAssemblyNames = currentAssembly.GetReferencedAssemblies();
+                if (referringAssemblyNames == null || !referringAssemblyNames.Any())
                     return result;
 
                 result = referringAssemblyNames.Any(name
