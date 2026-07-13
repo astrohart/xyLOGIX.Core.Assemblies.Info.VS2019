@@ -112,8 +112,8 @@ if it could not interrogate the target assembly for the requested information.
 
 ##### Summary
 
-Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
-`AssemblyTitle` attribute to be applied to the cloned project.
+Gets or sets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value
+of the `AssemblyTitle` attribute to be applied to the cloned project.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-AssemblyVersion'></a>
 ### AssemblyVersion `property`
@@ -134,17 +134,16 @@ if it could not interrogate the target assembly for the requested information.
 ##### Summary
 
 Gets or sets a reference to an instance of
-[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly')
-that indicates which `Assembly` metadata to use for the values of the
-properties.
+[Assembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly 'System.Reflection.Assembly') that indicates which
+`Assembly` metadata to use for the values of the properties.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-FormalApplicationName'></a>
 ### FormalApplicationName `property`
 
 ##### Summary
 
-Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the formal name of the
-application.
+Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the formal name of
+the application.
 
 ##### Remarks
 
@@ -166,8 +165,8 @@ property.
 
 ##### Remarks
 
-In order to work, this property must be set prior to making any calls to set up
-the logging infrastructure.
+In order to work, this property must be set prior to making any calls
+to set up the logging infrastructure.
 
 
 
@@ -242,9 +241,9 @@ determined.
 
 ##### Summary
 
-Gets or sets a value indicating whether the currently-executing assembly is to
-be utilized for gathering information such as product name, company, version
-etc.
+Gets or sets a value indicating whether the currently-executing
+assembly is to be utilized for gathering information such as product name,
+company, version etc.
 
 ##### Remarks
 
@@ -268,15 +267,16 @@ contains any whitespace characters; `false` otherwise.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the value that is to be
-checked for whitespace. |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | (Required.) A [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') containing the
+value that is to be checked for whitespace. |
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-IsNetCore'></a>
 ### IsNetCore() `method`
 
 ##### Summary
 
-Determines whether we're running on `.NET Core` or `.NET Framework`.
+Determines whether we're running on `.NET Core` or
+`.NET Framework`.
 
 ##### Returns
 
@@ -309,7 +309,8 @@ is to be used for extracting metadata.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler](#T-T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains the event data. |
+| e | [T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler](#T-T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
+the event data. |
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
 ## Find `type`
@@ -320,9 +321,8 @@ xyLOGIX.Core.Assemblies.Info
 
 ##### Summary
 
-Exposes `static` methods to find information on assemblies
-through
-Reflection.
+Exposes `static` methods to find information on
+assemblies through Reflection.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-Find-AllAssembliesThatDependOn-System-Reflection-Assembly-'></a>
 ### AllAssembliesThatDependOn(executingAssembly) `method`
@@ -405,7 +405,7 @@ sources.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyCompany]` attribute from the `AssemblyInfo.cs`
-file of  the calling assembly.
+file of the calling assembly.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyProduct'></a>
 ### AssemblyProduct `property`
@@ -414,7 +414,7 @@ file of  the calling assembly.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyProduct]` attribute from the `AssemblyInfo.cs`
-file of  the calling assembly.
+file of the calling assembly.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Get-AssemblyTitle'></a>
 ### AssemblyTitle `property`
@@ -423,7 +423,7 @@ file of  the calling assembly.
 
 Gets a [String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') that contains the value of the
 `[assembly: AssemblyTitle]` attribute from the `AssemblyInfo.cs` file
-of  the calling assembly.
+of the calling assembly.
 
 <a name='M-xyLOGIX-Core-Assemblies-Info-AssemblyMetadata-Get-AssemblyToUse'></a>
 ### AssemblyToUse() `method`
@@ -450,7 +450,7 @@ This library can be called either from a unit test, or from a EXE.
 
 
 We basically ask the calling assembly whether its pathname ends with
-`Tests.dll`.  If affirmative, then the return value of the
+`Tests.dll`. If affirmative, then the return value of the
 [GetCallingAssembly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.Assembly.GetCallingAssembly 'System.Reflection.Assembly.GetCallingAssembly') method is
 fetched.
 
@@ -465,8 +465,8 @@ EXE application; therefore, the return value of this method is that of the
 
 ##### Summary
 
-Initializes static data or performs actions that need to be performed once only
-for the [Get](#T-xyLOGIX-Core-Assemblies-Info-Get 'xyLOGIX.Core.Assemblies.Info.Get') class.
+Initializes static data or performs actions that need to be performed
+once only for the [Get](#T-xyLOGIX-Core-Assemblies-Info-Get 'xyLOGIX.Core.Assemblies.Info.Get') class.
 
 ##### Parameters
 
@@ -474,8 +474,8 @@ This method has no parameters.
 
 ##### Remarks
 
-This constructor is called automatically prior to the first instance being
-created or before any static members are referenced.
+This constructor is called automatically prior to the first instance
+being created or before any static members are referenced.
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-InternalStringExtensions'></a>
 ## InternalStringExtensions `type`
@@ -547,8 +547,8 @@ If either of the required parameters, `target`, or
 
 ##### Summary
 
-Removes the `trimString`, if present, from the start of the
-specified `target`.
+Removes the `trimString`, if present, from the start
+of the specified `target`.
 
 ##### Returns
 
@@ -588,8 +588,7 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 ##### Summary
 
-Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
+Overrides the current thread's CurrentUICulture property for all resource lookups using this strongly typed resource class.
 
 <a name='P-xyLOGIX-Core-Assemblies-Info-Properties-Resources-ResourceManager'></a>
 ### ResourceManager `property`
