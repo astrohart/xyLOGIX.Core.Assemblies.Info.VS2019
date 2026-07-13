@@ -50,10 +50,7 @@ namespace xyLOGIX.Core.Assemblies.Info
         /// method is idempotent.
         /// </returns>
         [return: NotLogged]
-        public static string TrimEnd(
-            [NotLogged] this string target,
-            [NotLogged] string trimString
-        )
+        public static string TrimEnd([NotLogged] this string target, [NotLogged] string trimString)
         {
             var result = target;
 
@@ -64,9 +61,7 @@ namespace xyLOGIX.Core.Assemblies.Info
 
                 while (result.EndsWith(trimString))
                 {
-                    result = result.Substring(
-                        0, result.Length - trimString.Length
-                    );
+                    result = result.Substring(0, result.Length - trimString.Length);
                 }
             }
             catch (Exception ex)
@@ -81,8 +76,8 @@ namespace xyLOGIX.Core.Assemblies.Info
         }
 
         /// <summary>
-        /// Removes the <paramref name="trimString" />, if present, from the start of the
-        /// specified <paramref name="target" />.
+        /// Removes the <paramref name="trimString" />, if present, from the start
+        /// of the specified <paramref name="target" />.
         /// </summary>
         /// <param name="target">
         /// (Required.) A <see cref="T:System.String" /> that is to be
