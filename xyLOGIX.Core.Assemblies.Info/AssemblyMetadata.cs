@@ -754,9 +754,11 @@ namespace xyLOGIX.Core.Assemblies.Info
                     if (ancestors == null || !ancestors.Any())
                         return result;
 
-                    /* The call stack frames go in reverse order, from the currently-executing
-                     method, down to the initial assembly that call the calling method. This the
-                     entry we want. */
+                    /*
+                     * The call stack frames go in reverse order, from the currently-executing
+                     * method, down to the initial assembly that call the calling method. This the
+                     * entry we want.
+                     */
 
                     var initialAssembly = ancestors.Last();
                     if (initialAssembly == null) return result;
@@ -771,7 +773,8 @@ namespace xyLOGIX.Core.Assemblies.Info
                         ? initialAssembly
                         : Assembly
                             .GetEntryAssembly(); // If we aren't unit-testing, the entry assembly
-                                                 // does fine
+
+                    // does fine
                 }
                 catch (Exception ex)
                 {
