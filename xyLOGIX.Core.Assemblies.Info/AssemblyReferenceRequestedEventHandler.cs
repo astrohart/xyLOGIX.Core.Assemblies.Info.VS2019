@@ -9,7 +9,7 @@ namespace xyLOGIX.Core.Assemblies.Info
     /// <c>AssemblyReferenceRequested</c> event.
     /// </summary>
     /// <param name="e">
-    /// (Required.) A <see cref="T:System.EventArgs" /> that contains
+    /// (Required.) An <see cref="T:System.EventArgs" /> that contains
     /// the event data.
     /// </param>
     /// <returns>
