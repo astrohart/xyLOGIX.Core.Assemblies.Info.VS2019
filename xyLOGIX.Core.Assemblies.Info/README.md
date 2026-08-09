@@ -309,7 +309,7 @@ is to be used for extracting metadata.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| e | [T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler](#T-T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler') | (Required.) A [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
+| e | [T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler](#T-T-xyLOGIX-Core-Assemblies-Info-AssemblyReferenceRequestedEventHandler 'T:xyLOGIX.Core.Assemblies.Info.AssemblyReferenceRequestedEventHandler') | (Required.) An [EventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.EventArgs 'System.EventArgs') that contains
 the event data. |
 
 <a name='T-xyLOGIX-Core-Assemblies-Info-Find'></a>
