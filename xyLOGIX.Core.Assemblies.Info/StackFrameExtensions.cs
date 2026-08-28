@@ -6,30 +6,13 @@ using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-    /// <summary>
-    /// Exposes extension methods for the
-    /// <see cref="T:System.Diagnostics.StackFrame" /> class.
-    /// </summary>
+    /// <summary>Exposes extension methods for the <see cref="T:System.Diagnostics.StackFrame" /> class.</summary>
     [Log(AttributeExclude = true)]
     public static class StackFrameExtensions
     {
-        /// <summary>
-        /// Attempts to obtain a reference to the
-        /// <see cref="T:System.Reflection.Assembly" /> instance that represents the
-        /// assembly that contains the method that is at the current stack
-        /// <paramref name="frame" />.
-        /// </summary>
-        /// <param name="frame">
-        /// (Required.) Reference to an instance of the
-        /// <see cref="T:System.Diagnostics.StackFrame" /> that represents the top of the
-        /// call stack.
-        /// </param>
-        /// <returns>
-        /// If successful, a reference to the
-        /// <see cref="T:System.Reflection.Assembly" /> instance that represents the
-        /// assembly that contains the method that is at the current stack
-        /// <paramref name="frame" />; <see langword="null" /> otherwise.
-        /// </returns>
+        /// <summary>Attempts to obtain a reference to the <see cref="T:System.Reflection.Assembly" /> instance that represents the assembly that contains the method that is at the current stack <paramref name="frame" />.</summary>
+        /// <param name="frame">(Required.) Reference to an instance of the <see cref="T:System.Diagnostics.StackFrame" /> that represents the top of the call stack.</param>
+        /// <returns>If successful, a reference to the <see cref="T:System.Reflection.Assembly" /> instance that represents the assembly that contains the method that is at the current stack <paramref name="frame" />; <see langword="null" /> otherwise.</returns>
         public static Assembly GetDeclaringAssembly(this StackFrame frame)
         {
             Assembly result = default;
