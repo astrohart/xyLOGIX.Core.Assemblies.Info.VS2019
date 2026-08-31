@@ -11,12 +11,37 @@ using xyLOGIX.Core.Debug;
 
 namespace xyLOGIX.Core.Assemblies.Info
 {
-    /// <summary>Exposes <see langword="static" /> methods to obtain data from various sources.</summary>
+    /// <summary>
+    /// Exposes <see langword="static" /> method(s) to obtain data from
+    /// various sources.
+    /// </summary>
     [Log(AttributeExclude = true)]
     public static class AssemblyMetadata
     {
-        /// <summary>Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c> file of the calling assembly.</summary>
-        /// <remarks>This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Initializes <see langword="static" /> data or performs actions that
+        /// need to be performed once only for the
+        /// <see cref="T:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance
+        /// being created or before any <see langword="static" /> members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static AssemblyMetadata() { }
+
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyCompany]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of the calling assembly.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyCompany
         {
             get
@@ -54,8 +79,15 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyCopyright]</c> attribute from the <c>AssemblyInfo.cs</c> file of the calling assembly.</summary>
-        /// <remarks>This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyCopyright]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of the calling assembly.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyCopyright
         {
             get
@@ -91,8 +123,15 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyDescription]</c> attribute from the <c>AssemblyInfo.cs</c> file of the calling assembly.</summary>
-        /// <remarks>This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyDescription]</c> attribute from the
+        /// <c>AssemblyInfo.cs</c> file of the calling assembly.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyDescription
         {
             get
@@ -128,8 +167,15 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets a <see cref="T:System.String" /> that contains the value of the <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c> file of the calling assembly.</summary>
-        /// <remarks>This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the value of the
+        /// <c>[assembly: AssemblyProduct]</c> attribute from the <c>AssemblyInfo.cs</c>
+        /// file of the calling assembly.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyProduct
         {
             get
@@ -166,7 +212,10 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets or sets a <see cref="T:System.String" /> that contains the value of the <c>AssemblyTitle</c> attribute to be applied to the cloned project.</summary>
+        /// <summary>
+        /// Gets or sets a <see cref="T:System.String" /> that contains the value
+        /// of the <c>AssemblyTitle</c> attribute to be applied to the cloned project.
+        /// </summary>
         public static string AssemblyTitle
         {
             get
@@ -208,8 +257,14 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets the full version <see cref="T:System.String" /> of the calling assembly.</summary>
-        /// <remarks>This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Gets the full version <see cref="T:System.String" /> of the calling
+        /// assembly.
+        /// </summary>
+        /// <remarks>
+        /// This property returns the <see cref="F:System.String.Empty" /> value
+        /// if it could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string AssemblyVersion
         {
             get
@@ -241,7 +296,11 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets or sets a reference to an instance of <see cref="T:System.Reflection.Assembly" /> that indicates which <c>Assembly</c> metadata to use for the values of the properties.</summary>
+        /// <summary>
+        /// Gets or sets a reference to an instance of
+        /// <see cref="T:System.Reflection.Assembly" /> that indicates which
+        /// <c>Assembly</c> metadata to use for the values of the properties.
+        /// </summary>
         public static Assembly DesiredAssembly
         {
             [DebuggerStepThrough]
@@ -250,8 +309,16 @@ namespace xyLOGIX.Core.Assemblies.Info
             set;
         } = Assembly.GetEntryAssembly();
 
-        /// <summary>Gets a <see cref="T:System.String" /> that contains the formal name of the application.</summary>
-        /// <remarks>The formal name is something such as <c>xyLOGIX My Application 2.0.35.2965</c>, where <c>xyLOGIX</c> is the <c>Short Company Name</c>, <c>My Application</c> is the <c>Product Name</c>, and <c>2.0.35.2965</c> is the <c>Version</c>.</remarks>
+        /// <summary>
+        /// Gets a <see cref="T:System.String" /> that contains the formal name of
+        /// the application.
+        /// </summary>
+        /// <remarks>
+        /// The formal name is something such as
+        /// <c>xyLOGIX My Application 2.0.35.2965</c>, where <c>xyLOGIX</c> is the
+        /// <c>Short Company Name</c>, <c>My Application</c> is the <c>Product Name</c>,
+        /// and <c>2.0.35.2965</c> is the <c>Version</c>.
+        /// </remarks>
         public static string FormalApplicationName
         {
             get
@@ -281,8 +348,26 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets a value that determines whether the value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" /> property is to be removed from the value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" /> property.</summary>
-        /// <remarks>In order to work, this property must be set prior to making any calls to set up the logging infrastructure. <para /> The default value of this property is <see langword="true" />. <para /><b>NOTE:</b> The value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" /> property is always removed from the start of the value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" /> property, regardless of the value of this property. <para /></remarks>
+        /// <summary>
+        /// Gets a value that determines whether the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" />
+        /// property is to be removed from the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" />
+        /// property.
+        /// </summary>
+        /// <remarks>
+        /// In order to work, this property must be set prior to making any calls
+        /// to set up the logging infrastructure.
+        /// <para />
+        /// The default value of this property is <see langword="true" />.
+        /// <para />
+        /// <b>NOTE:</b> The value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortCompanyName" />
+        /// property is always removed from the start of the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.ShortProductName" />
+        /// property, regardless of the value of this property.
+        /// <para />
+        /// </remarks>
         public static bool RemoveCompanyFromShortProduct
         {
             [DebuggerStepThrough]
@@ -291,8 +376,20 @@ namespace xyLOGIX.Core.Assemblies.Info
             set;
         } = true;
 
-        /// <summary>Gets the shortened form of the name of the company that is associated with the target assembly.</summary>
-        /// <remarks>The shortened form of a company is that which does not contain "LLC", or ", Inc." etc. <para /> This property assumes that all full company names use commas to separate the brand name from the incorporation prefix. <para /> This property returns the <see cref="F:System.String.Empty" /> value if it could not interrogate the target assembly for the requested information.</remarks>
+        /// <summary>
+        /// Gets the shortened form of the name of the company that is associated
+        /// with the target assembly.
+        /// </summary>
+        /// <remarks>
+        /// The shortened form of a company is that which does not contain "LLC",
+        /// or ", Inc." etc.
+        /// <para />
+        /// This property assumes that all full company names use commas to separate the
+        /// brand name from the incorporation prefix.
+        /// <para />
+        /// This property returns the <see cref="F:System.String.Empty" /> value if it
+        /// could not interrogate the target assembly for the requested information.
+        /// </remarks>
         public static string ShortCompanyName
         {
             get
@@ -321,8 +418,29 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Obtains the name of the application's product without the name of the company at the start. <para /> This property ordinarily will preserve the company name if it appears anywhere else in the value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property, except if the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.RemoveCompanyFromShortProduct" /> property is set to <see langword="true" />.</summary>
-        /// <remarks>This is useful, e.g., for error messages. <para /> Instead of, "<c>MyCompany MyApp could not locate the file</c>," you can instead say, "<c>MyApp could not locate the file</c>." <para /> This property returns the value of the <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" /> property if the shortened form of the product name could not otherwise be determined.</remarks>
+        /// <summary>
+        /// Obtains the name of the application's product without the name of the company
+        /// at the start.
+        /// <para />
+        /// This property ordinarily will preserve the company name if it appears anywhere
+        /// else in the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
+        /// property, except if the
+        /// <see
+        ///     cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.RemoveCompanyFromShortProduct" />
+        /// property is set to <see langword="true" />.
+        /// </summary>
+        /// <remarks>
+        /// This is useful, e.g., for error messages.
+        /// <para />
+        /// Instead of, "<c>MyCompany MyApp could not locate the file</c>," you can instead
+        /// say, "<c>MyApp could not locate the file</c>."
+        /// <para />
+        /// This property returns the value of the
+        /// <see cref="P:xyLOGIX.Core.Assemblies.Info.AssemblyMetadata.AssemblyProduct" />
+        /// property if the shortened form of the product name could not otherwise be
+        /// determined.
+        /// </remarks>
         public static string ShortProductName
         {
             get
@@ -356,7 +474,11 @@ namespace xyLOGIX.Core.Assemblies.Info
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether the currently-executing assembly is to be utilized for gathering information such as product name, company, version etc.</summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether the currently-executing
+        /// assembly is to be utilized for gathering information such as product name,
+        /// company, version etc.
+        /// </summary>
         /// <remarks>The default value of this property is <see langword="false" />.</remarks>
         public static bool UseExecutingAssembly
         {
@@ -366,9 +488,19 @@ namespace xyLOGIX.Core.Assemblies.Info
             set;
         }
 
-        /// <summary>Determines if the specified <see cref="T:System.String" /> parameter, <paramref name="value" />, is a string that is non-blank but also contains any whitespace.</summary>
-        /// <param name="value">(Required.) A <see cref="T:System.String" /> containing the value that is to be checked for whitespace.</param>
-        /// <returns><see langword="true" /> if the specified <paramref name="value" /> contains any whitespace characters; <see langword="false" /> otherwise.</returns>
+        /// <summary>
+        /// Determines if the specified <see cref="T:System.String" /> parameter,
+        /// <paramref name="value" />, is a string that is non-blank but also contains any
+        /// whitespace.
+        /// </summary>
+        /// <param name="value">
+        /// (Required.) A <see cref="T:System.String" /> containing the
+        /// value that is to be checked for whitespace.
+        /// </param>
+        /// <returns>
+        /// <see langword="true" /> if the specified <paramref name="value" />
+        /// contains any whitespace characters; <see langword="false" /> otherwise.
+        /// </returns>
         private static bool HasWhiteSpace(this string value)
         {
             var result = false;
@@ -391,8 +523,14 @@ namespace xyLOGIX.Core.Assemblies.Info
             return result;
         }
 
-        /// <summary>Determines whether we're running on <c>.NET Core</c> or <c>.NET Framework</c>.</summary>
-        /// <returns><see langword="true" /> if this code is running on <c>.NET Core</c>; else, <see langword="false" /> for <c>.NET Framework</c>.</returns>
+        /// <summary>
+        /// Determines whether we're running on <c>.NET Core</c> or
+        /// <c>.NET Framework</c>.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true" /> if this code is running on <c>.NET Core</c>;
+        /// else, <see langword="false" /> for <c>.NET Framework</c>.
+        /// </returns>
         private static bool IsNetCore()
         {
             bool result;
@@ -582,9 +720,27 @@ namespace xyLOGIX.Core.Assemblies.Info
         [ExplicitlySynchronized]
         public static class Get
         {
-            /// <summary>Attempts to get the <see cref="T:System.Reflection.Assembly" /> instance that is to be used to gather attributes.</summary>
-            /// <returns>If successful, the <see cref="T:System.Reflection.Assembly" /> instance that is to be used to gather attributes, or <see langword="null" /> if not possible.</returns>
-            /// <remarks>This library can be called either from a unit test, or from a EXE. <para /> We basically ask the calling assembly whether its pathname ends with <c>Tests.dll</c>. If affirmative, then the return value of the <see cref="M:System.Reflection.Assembly.GetCallingAssembly" /> method is fetched. <para /> Otherwise, we assume that we have been called from a WinForms or Console or WPF EXE application; therefore, the return value of this method is that of the <see cref="M:System.Reflection.Assembly.GetEntryAssembly" /> method.</remarks>
+            /// <summary>
+            /// Attempts to get the <see cref="T:System.Reflection.Assembly" />
+            /// instance that is to be used to gather attributes.
+            /// </summary>
+            /// <returns>
+            /// If successful, the <see cref="T:System.Reflection.Assembly" />
+            /// instance that is to be used to gather attributes, or <see langword="null" /> if
+            /// not possible.
+            /// </returns>
+            /// <remarks>
+            /// This library can be called either from a unit test, or from a EXE.
+            /// <para />
+            /// We basically ask the calling assembly whether its pathname ends with
+            /// <c>Tests.dll</c>. If affirmative, then the return value of the
+            /// <see cref="M:System.Reflection.Assembly.GetCallingAssembly" /> method is
+            /// fetched.
+            /// <para />
+            /// Otherwise, we assume that we have been called from a WinForms or Console or WPF
+            /// EXE application; therefore, the return value of this method is that of the
+            /// <see cref="M:System.Reflection.Assembly.GetEntryAssembly" /> method.
+            /// </remarks>
             [Log(AttributeExclude = true)]
             public static Assembly AssemblyToUse()
             {
