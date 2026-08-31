@@ -8,18 +8,23 @@ using xyLOGIX.Core.Debug;
 namespace xyLOGIX.Core.Assemblies.Info
 {
     /// <summary>
-    /// Exposes <see langword="static" /> method(s) to obtain data from various
-    /// sources.
+    /// Exposes <see langword="static" /> method(s) to obtain data from
+    /// various sources.
     /// </summary>
+    [Log(AttributeExclude = true)]
     public static class Get
     {
         /// <summary>
-        /// Initializes static data or performs actions that need to be performed
-        /// once only for the <see cref="T:xyLOGIX.Core.Assemblies.Info.Get" /> class.
+        /// Initializes <see langword="static" /> data or performs actions that
+        /// need to be performed once only for the
+        /// <see cref="T:xyLOGIX.Core.Assemblies.Info.Get" /> class.
         /// </summary>
         /// <remarks>
         /// This constructor is called automatically prior to the first instance
-        /// being created or before any static members are referenced.
+        /// being created or before any <see langword="static" /> members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
         /// </remarks>
         [Log(AttributeExclude = true)]
         static Get() { }
