@@ -17,6 +17,21 @@ namespace xyLOGIX.Core.Assemblies.Info
     public static class Find
     {
         /// <summary>
+        /// Initializes <see langword="static" /> data or performs actions that
+        /// need to be performed once only for the
+        /// <see cref="T:xyLOGIX.Core.Assemblies.Info.Find" /> class.
+        /// </summary>
+        /// <remarks>
+        /// This constructor is called automatically prior to the first instance
+        /// being created or before any <see langword="static" /> members are referenced.
+        /// <para />
+        /// We've decorated this constructor with the <c>[Log(AttributeExclude = true)]</c>
+        /// attribute in order to simplify the logging output.
+        /// </remarks>
+        [Log(AttributeExclude = true)]
+        static Find() { }
+
+        /// <summary>
         /// Attempts to obtain a collection of references to instances of
         /// <paramref name="executingAssembly" /> in the call stack that refer to the
         /// specified <paramref name="executingAssembly" />.
